@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="260dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:paddingBottom="@dimen/dist_5"
+    android:paddingLeft="@dimen/dist_5"
+    android:paddingRight="@dimen/dist_5"
+    android:paddingTop="@dimen/dist_5"
+    android:background="@drawable/custom_card"
+    android:orientation="vertical"
+    >
+
+<LinearLayout
+    android:layout_gravity="center"
+    android:id="@+id/dialogopen"
+    android:paddingBottom="@dimen/dist_5"
+    android:paddingLeft="@dimen/dist_5"
+    android:paddingRight="@dimen/dist_5"
+    android:paddingTop="@dimen/dist_5"
+    android:background="@drawable/custom_card"
+    android:layout_width="260dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:background="@color/colorOrange"
+        android:textColor="@color/colorWhite"
+        android:text="Verification Code"
+        android:textSize="16sp"
+        android:paddingLeft="@dimen/dist_10"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/dialog_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dist_5"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textSize="13sp"
+        android:padding="@dimen/dist_5"
+        android:textColor="@color/colordarkGrey"
+        android:text="Enter 4 digits code sent to your email address." />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext"
+        android:textSize="16sp"
+        android:gravity="center_horizontal"
+        android:hint="Enter verification code here"
+        android:textColor="@color/colordarkGrey"
+        android:textColorHint="@color/colordarkGrey"
+        android:id="@+id/edit_text1"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_main"
+        android:id="@+id/box"
+        android:visibility="gone"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="30dp">
+
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:maxLength="1"
+            android:imeOptions="actionNext"
+            android:textSize="35sp"
+            android:gravity="center_horizontal"
+            android:hint="2"
+            android:textColor="@color/colordarkGrey"
+            android:textColorHint="@color/colordarkGrey"
+            android:id="@+id/edt_txt1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/edt_txt1"
+            android:text="-"
+            android:visibility="gone"
+            android:textSize="40dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/dash1"
+            android:gravity="center_horizontal"
+            android:layout_centerInParent="true"/>
+
+
+        <EditText
+            android:textSize="35sp"
+            android:hint="4"
+            android:textColorHint="@color/colordarkGrey"
+            android:gravity="center_horizontal"
+            android:layout_width="50dp"
+            android:imeOptions="actionNext"
+            android:layout_height="70dp"
+            android:id="@+id/edt_txt2"
+            android:maxLength="1"
+            android:textColor="@color/colordarkGrey"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/dash1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/edt_txt2"
+            android:text="-"
+            android:visibility="gone"
+            android:textSize="40dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/dash2"
+            android:gravity="center_horizontal"
+            android:layout_centerInParent="true"/>
+
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:id="@+id/edt_txt3"
+            android:textSize="35sp"
+            android:hint="4"
+            android:imeOptions="actionNext"
+            android:textColor="@color/colordarkGrey"
+            android:textColorHint="@color/colordarkGrey"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/dash2"/>
+
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/edt_txt3"
+            android:text="-"
+            android:textSize="40dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/dash3"
+            android:gravity="center_horizontal"
+            android:layout_centerInParent="true"/>
+
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:textSize="35sp"
+            android:hint="4"
+            android:imeOptions="actionDone"
+            android:textColorHint="@color/colordarkGrey"
+            android:gravity="center_horizontal"
+            android:id="@+id/edt_txt4"
+            android:textColor="@color/colordarkGrey"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/dash3"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/dialog_text"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_height="40dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:onClick="dosomething"
+        android:layout_marginBottom="@dimen/dist_10"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/greenshape"
+        android:textColor="@color/colorWhite"
+        android:text="Submit"/>
+
+</LinearLayout>
+
+
+
+
+</LinearLayout>

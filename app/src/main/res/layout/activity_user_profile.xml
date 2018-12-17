@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".javaClasses.UserProfile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:alpha="0.8"
+        android:background="@drawable/user_bg">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/card_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+
+        <RelativeLayout
+            android:id="@+id/card_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/profile_image"
+            android:background="@drawable/shape"
+            >
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dist_5">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="@dimen/dist_5"
+                       >
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/dist_10"
+                            android:textColorHint="@color/colorGrey"
+                            android:hint="Mobile Number"
+                            android:imeOptions="actionNext">
+
+                            <EditText
+                                android:textSize="15sp"
+                                android:background="@android:color/transparent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/mobile_no"
+                                android:maxLines="1"
+                                android:paddingTop="@dimen/dist_10"
+                                android:text="03001234567"
+                                android:inputType="text"
+                                android:maxLength="11"
+                                android:layout_weight="0.5"
+                                android:textColor="@color/colorblack"/>
+
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dist_5"
+                        android:layout_marginBottom="@dimen/dist_5"
+                        android:background="@color/colorviewgray">
+
+                    </View>
+
+
+                    <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/dist_5"
+                   >
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/dist_10"
+                        android:textColorHint="@color/colorGrey"
+                        android:hint="City"
+                        android:textSize="15sp"
+                        android:imeOptions="actionNext">
+
+                        <EditText
+                            android:textSize="15sp"
+                            android:background="@android:color/transparent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/city_name"
+                            android:maxLines="1"
+                            android:paddingTop="@dimen/dist_10"
+                            android:text="peshawar"
+                            android:inputType="text"
+                            android:maxLength="11"
+                            android:layout_weight="0.5"
+                            android:textColor="@color/colorblack"/>
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dist_5"
+                        android:layout_marginBottom="@dimen/dist_5"
+                        android:background="@color/colorviewgray">
+
+                    </View>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="@dimen/dist_5">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/dist_10"
+                            android:textColorHint="@color/colorGrey"
+                            android:hint="Address"
+                            android:textSize="15sp"
+                            android:imeOptions="actionNext">
+
+                            <EditText
+                                android:textSize="15sp"
+                                android:background="@android:color/transparent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/address_name"
+                                android:maxLines="1"
+                                android:paddingTop="@dimen/dist_10"
+                                android:text="Address"
+                                android:inputType="text"
+                                android:maxLength="11"
+                                android:layout_weight="0.5"
+                                android:textColor="@color/colorblack"/>
+
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dist_5"
+                        android:layout_marginBottom="@dimen/dist_5"
+                        android:background="@color/colorviewgray">
+
+                    </View>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="@dimen/dist_5">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/dist_10"
+                            android:textColorHint="@color/colorGrey"
+                            android:hint="Email Address"
+                            android:textSize="15sp"
+                            android:imeOptions="actionNext">
+
+                            <EditText
+                                android:textSize="15sp"
+                                android:background="@android:color/transparent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/email_address"
+                                android:maxLines="1"
+                                android:paddingTop="@dimen/dist_10"
+                                android:text="Johny@gmail.com"
+                                android:inputType="text"
+                                android:maxLength="11"
+                                android:layout_weight="0.5"
+                                android:textColor="@color/colorblack"/>
+
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dist_5"
+                        android:layout_marginBottom="@dimen/dist_5"
+                        android:background="@color/colorviewgray">
+
+                    </View>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="@dimen/dist_5"
+                       >
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/dist_10"
+                            android:textColorHint="@color/colorGrey"
+                            android:hint="Update Password"
+                            android:textSize="15sp"
+                            android:imeOptions="actionNext">
+
+                            <EditText
+                                android:textSize="15sp"
+                                android:background="@android:color/transparent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/password_user"
+                                android:maxLines="1"
+                                android:paddingTop="@dimen/dist_10"
+                                android:text="********"
+                                android:inputType="text"
+                                android:maxLength="11"
+                                android:layout_weight="0.5"
+                                android:textColor="@color/colorblack"/>
+
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/dist_5"
+                        android:layout_marginBottom="@dimen/dist_5"
+                        android:background="@color/colorviewgray">
+
+                    </View>
+
+                    <Button
+                        android:layout_width="180dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/userbtn"
+                        android:text="Update  Profile"
+                        android:id="@+id/update_profile"
+                        android:textSize="12dp"
+                        android:textColor="@color/colorWhite"
+                        android:layout_marginBottom="@dimen/dist_10"
+                        android:layout_marginTop="@dimen/dist_15"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/album_dp_50"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:src="@drawable/profile"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar_trans"
+        android:background="@android:color/transparent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/MyTheme">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_weight="0.85"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/back_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back_button"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_weight="0.15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User Profile"
+                android:textColor="@color/ef_white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/dist_10"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>

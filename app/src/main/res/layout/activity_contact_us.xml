@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".javaClasses.ContactUs">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:visibility="gone"
+        android:background="@drawable/toolbar">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/toolbar"
+        android:background="@color/colorGreen">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_btn"
+            android:layout_marginTop="@dimen/dist_10"
+            android:id="@+id/gohome"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact Us"
+            android:layout_toRightOf="@+id/gohome"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/dist_15"
+            android:textColor="@color/colorWhite"
+            android:textSize="16dp"
+            android:layout_marginTop="@dimen/dist_10"
+            android:layout_centerVertical="true"/>
+
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardCornerRadius="4dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="7dp"
+        android:id="@+id/card_container"
+        app:cardElevation="8dp">
+
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorOrange"
+            android:text="CONTACT US"
+            android:gravity="center"
+            android:textSize="@dimen/h2"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:id="@+id/title"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contactusinfo"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="@dimen/dist_10"
+            android:textSize="13sp"
+            android:maxLines="3"
+            android:layout_below="@+id/title"
+            android:textColor="@color/colordarkGrey"
+            android:id="@+id/topblue"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="Complaint Against"
+        android:gravity="center"
+        android:background="@drawable/orange"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/dist_15"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="Directorate of human rights is always at your service. You can contact us 24/7 through call, email or by visiting our website."
+        android:gravity="center"
+        android:maxLines="3"
+        android:layout_marginBottom="@dimen/dist_10"
+        android:layout_marginRight="@dimen/dist_10"
+        android:layout_marginLeft="@dimen/dist_10"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/colorblack"
+        android:textSize="12dp"/>
+
+    </LinearLayout>
+
+            <RelativeLayout
+            android:id="@+id/relative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_image">
+
+            <RelativeLayout
+                android:id="@+id/card_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape"
+                >
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="9"
+                    android:padding="@dimen/dist_5">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="@dimen/dist_5"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        >
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:id="@+id/newcomplaint1"
+                            android:layout_width="match_parent"
+                            android:layout_height="160dp"
+                            android:layout_weight="1"
+                            android:layout_marginRight="2dp"
+                            android:background="@drawable/linear"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/addressicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Address"
+                                android:textSize="@dimen/dist_15"
+                                android:textColor="@color/colorblack"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="11dp"
+                                android:gravity="center"
+                                android:maxLines="2"
+                                android:layout_gravity="center"
+                                android:text="Plot No.21,Sector B2,Phase-V , Hayatabd Peshawar"/>
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:background="@drawable/buttonshape"
+                                android:text="View On Map"
+                                android:id="@+id/map_google"
+                                android:textSize="12dp"
+                                android:textColor="@color/colorWhite"
+                                android:layout_marginTop="@dimen/dist_10"
+                                android:layout_gravity="center"
+                                android:gravity="center"/>
+
+                        </LinearLayout>
+
+                         <LinearLayout
+                            android:orientation="vertical"
+                            android:id="@+id/newcomplaint"
+                            android:layout_width="match_parent"
+                            android:layout_height="160dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/linear"
+                            android:layout_marginLeft="2dp"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/callicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Contact Number"
+                                android:textSize="@dimen/dist_15"
+                                android:textColor="@color/colorblack"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="11dp"
+                                android:gravity="center"
+                                android:layout_marginTop="@dimen/dist_5"
+                                android:layout_marginBottom="@dimen/dist_5"
+                                android:layout_gravity="center"
+                                android:text="+92 9217203"/>
+
+                            <Button
+                                android:id="@+id/buttoncall"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:background="@drawable/buttonshape"
+                                android:text="Call Helpline"
+                                android:textSize="12dp"
+                                android:onClick="dosomething"
+                                android:layout_marginTop="@dimen/dist_10"
+                                android:textColor="@color/colorWhite"
+                                android:layout_gravity="center"
+                                android:gravity="center"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        >
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:id="@+id/newcomplaint2"
+                            android:layout_width="match_parent"
+                            android:layout_height="160dp"
+                            android:layout_weight="1"
+                            android:layout_marginRight="2dp"
+                            android:background="@drawable/linear"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/emailicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Email Address"
+                                android:textSize="@dimen/dist_15"
+                                android:textColor="@color/colorblack"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="11dp"
+                                android:gravity="center"
+                                android:layout_marginTop="@dimen/dist_5"
+                                android:layout_marginBottom="@dimen/dist_5"
+                                android:layout_gravity="center"
+                                android:text="dhr.kpk@gmail.com"/>
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:background="@drawable/buttonshape"
+                                android:text="Send E-mail"
+                                android:textSize="12dp"
+                                android:id="@+id/email_link"
+                                android:textColor="@color/colorWhite"
+                                android:layout_marginTop="@dimen/dist_10"
+                                android:layout_gravity="center"
+                                android:gravity="center"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:id="@+id/newcomplaint3"
+                            android:layout_width="match_parent"
+                            android:layout_height="160dp"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="2dp"
+                            android:background="@drawable/linear"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/social"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Social Media Links"
+                                android:textSize="@dimen/dist_15"
+                                android:textColor="@color/colorblack"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="11dp"
+                                android:gravity="center"
+                                android:layout_marginTop="@dimen/dist_5"
+                                android:layout_marginBottom="@dimen/dist_5"
+                                android:layout_gravity="center"
+                                android:text="Visit facebook &amp; twitter pages"/>
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:background="@drawable/buttonshape"
+                                android:text="Social Media Links"
+                                android:id="@+id/social_links"
+                                android:textSize="12dp"
+                                android:textColor="@color/colorWhite"
+                                android:layout_marginTop="@dimen/dist_10"
+                                android:layout_gravity="center"
+                                android:gravity="center"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_gravity="center"
+                                android:visibility="gone"
+                                android:layout_marginTop="@dimen/dist_10"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:visibility="gone"
+                                    android:layout_marginRight="@dimen/dist_10"
+                                    android:src="@drawable/fb"/>
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:visibility="gone"
+                                    android:layout_marginLeft="@dimen/dist_10"
+                                    android:src="@drawable/twitter"/>
+
+                            </LinearLayout>
+
+                            <!--<Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:background="@drawable/buttonshape"
+                                android:text="View On Map"
+                                android:textSize="12dp"
+                                android:layout_marginTop="@dimen/dist_5"
+                                android:textColor="@color/colorWhite"
+                                android:layout_gravity="center"
+                                android:gravity="center"/>-->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+
+                    android:layout_marginTop="@dimen/dist_5"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    >
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:id="@+id/websitelink"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/linear"
+                        android:gravity="center">
+
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/websiteicon"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Website"
+                            android:textSize="@dimen/dist_15"
+                            android:textColor="@color/colorblack"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="11dp"
+                            android:gravity="center"
+                            android:layout_marginTop="@dimen/dist_5"
+                            android:layout_marginBottom="@dimen/dist_10"
+                            android:layout_gravity="center"
+                            android:text="http://humanrights.kp.gov.pk"/>
+
+                        <Button
+                            android:layout_width="150dp"
+                            android:layout_height="35dp"
+                            android:background="@drawable/buttonshape"
+                            android:text="Visit Website"
+                            android:textSize="12dp"
+                            android:id="@+id/websiteclick"
+                            android:layout_marginTop="@dimen/dist_5"
+                            android:textColor="@color/colorWhite"
+                            android:layout_gravity="center"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:id="@+id/directory"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2dp"
+                        android:background="@drawable/linear"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="@dimen/dist_5"
+                            android:src="@drawable/directory"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Directory"
+                            android:textSize="@dimen/dist_15"
+                            android:textColor="@color/colorblack"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="11dp"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:maxLines="3"
+                            android:text="View contacts of Directorate of Human Rights KPK Officails"/>
+
+                        <Button
+                            android:layout_width="150dp"
+                            android:layout_height="35dp"
+                            android:background="@drawable/buttonshape"
+                            android:text="Visit Directory"
+                            android:textSize="12dp"
+                            android:id="@+id/directorycheck"
+                            android:layout_marginTop="@dimen/dist_5"
+                            android:textColor="@color/colorWhite"
+                            android:layout_gravity="center"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                </LinearLayout>
+
+                </ScrollView>
+
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+</RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

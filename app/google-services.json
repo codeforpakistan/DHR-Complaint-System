@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "753460235464",
+    "firebase_url": "https://kp-human-rights.firebaseio.com",
+    "project_id": "kp-human-rights",
+    "storage_bucket": "kp-human-rights.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753460235464:android:86856d8cda18708c",
+        "android_client_info": {
+          "package_name": "com.dohr.complaint.cell"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "753460235464-upouo2628jiaspbesafmisn93r2q2o0c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkgq1tkSY6eJWp8xhE-kdFh5ZRtgPHjs8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

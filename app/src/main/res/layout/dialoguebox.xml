@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dist_5"
+            android:layout_below="@+id/profile_image"
+            >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/dist_5">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="@dimen/dist_10"
+                android:src="@drawable/tick"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No case in a court of law is pending in relation to the present complaint as per my knowledge."
+                android:gravity="center_vertical"
+                android:textSize="@dimen/para"
+                android:layout_marginTop="@dimen/dist_5"
+                android:layout_below="@+id/doyou"
+                android:textColor="@color/colorGrey"/>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dist_5">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_marginRight="@dimen/dist_10"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/tick"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Contents of the complaint are based fact and correct to the best of my knowedge and nothing has been secret."
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/para"
+                    android:layout_marginTop="@dimen/dist_5"
+                    android:layout_below="@+id/doyou"
+                    android:textColor="@color/colorGrey"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/dist_10"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ticktak"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:layout_marginTop="@dimen/dist_15">
+
+                <Button
+                    android:layout_weight="0.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_btnshape"
+                    android:text="Edit Form"
+                    android:id="@+id/editform"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:layout_marginRight="@dimen/dist_10"/>
+
+                <Button
+                    android:layout_weight="0.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textSize="16sp"
+                    android:id="@+id/agree"
+                    android:layout_marginLeft="@dimen/dist_10"
+                    android:textColor="@color/colorWhite"
+                    android:background="@drawable/shapee"
+                    android:text="Yes, I agree"/>
+
+                <!--<ImageView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/edit_btn"
+                    android:layout_marg/>
+
+                <ImageView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/agree_btn"/>-->
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Confirmation"
+                android:gravity="center"
+                android:textSize="@dimen/h2"
+                android:background="@color/colorOrange"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:id="@+id/title"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Do you Agree with the terms below and submit this form"
+                android:gravity="center"
+                android:textSize="@dimen/para"
+                android:paddingTop="@dimen/dist_10"
+                android:paddingBottom="@dimen/dist_10"
+                android:id="@+id/doyou"
+                android:layout_below="@+id/title"
+                android:textColor="@color/colorGrey"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

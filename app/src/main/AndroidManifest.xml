@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dohr.complaint.cell">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:debuggable="false"
+        android:icon="@drawable/ap_icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@drawable/ap_icon"
+        android:supportsRtl="true"
+        android:testOnly="false"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.afollestad.materialcamera.CaptureActivity"
+            android:theme="@style/MaterialCamera.CaptureActivity" />
+        <activity
+            android:name="com.afollestad.materialcamera.CaptureActivity2"
+            android:theme="@style/MaterialCamera.CaptureActivity" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.dohr.complaint.cell.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".javaClasses.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LogInClasses.LogIn"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".javaClasses.Register"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".javaClasses.Home"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".javaClasses.ComplaintStatus"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".javaClasses.NewComplaint"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".javaClasses.ComplaintAgainst"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".javaClasses.AttachmentSubmit"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".javaClasses.MyComplaintDetail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".javaClasses.ImageResult"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".javaClasses.ContactUs"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".javaClasses.Awareness.Awareness"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".javaClasses.Awareness.AwarenessDetails"
+            android:screenOrientation="portrait" />
+        <activity android:name=".javaClasses.AdvanceWebviewClass" />
+        <activity android:name=".javaClasses.Notifications" >
+            <intent-filter>
+            <action android:name="ACTIVITY_DONOR" />
+            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDHRSbe4v-ZZq1dJOFQMLv0xHRQ0DxFD84" />
+
+        <activity android:name=".javaClasses.Announcements" />
+        <activity android:name=".javaClasses.Directory" />
+        <activity
+            android:name=".javaClasses.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".javaClasses.ForGetActivity" />
+
+        <service android:name=".firebase.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".firebase.ReceiveNotification">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+     <!--   <service
+            android:name=".firebase.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>-->
+
+
+        <activity
+            android:name=".javaClasses.FullScreenVideo"
+            android:screenOrientation="landscape" />
+        <activity android:name=".javaClasses.AboutUs" />
+        <activity android:name=".javaClasses.UserProfile" />
+        <activity android:name=".javaClasses.UserVerification"></activity>
+    </application>
+
+</manifest>

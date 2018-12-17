@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorlightGrey"
+    tools:context=".javaClasses.AttachmentSubmit"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:visibility="gone"
+        android:background="@drawable/toolbar">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/toolbar"
+        android:background="@color/colorGreen">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_btn"
+            android:layout_marginTop="@dimen/dist_10"
+            android:id="@+id/back_shabtn"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Complaint"
+            android:layout_toRightOf="@+id/back_shabtn"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/dist_15"
+            android:textColor="@color/colorWhite"
+            android:textSize="16dp"
+            android:layout_marginTop="@dimen/dist_10"
+            android:layout_centerVertical="true"/>
+
+
+    </RelativeLayout>
+<!--
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardCornerRadius="4dp"
+        android:visibility="visible"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="5dp"
+        android:id="@+id/card_container"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="4dp">-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/card_container3">
+
+            <RelativeLayout
+                android:id="@+id/profile_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/toolbar"
+                android:layout_alignParentTop="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/colorOrange"
+                    android:text="@string/Attachment"
+                    android:gravity="center"
+                    android:textSize="@dimen/h2"
+                    android:textColor="@color/colorWhite"
+                    android:id="@+id/title"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/dist_5"
+                    android:textSize="14sp"
+                    android:layout_below="@+id/title"
+                    android:textColor="@color/colorblack"
+                    android:id="@+id/topblue"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="اپنی شکایت کی حمایت میں کسی بھی قسم کاثبوت (تصویریاویڈیو)منسلک کریں"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/dist_10"
+                    android:textSize="@dimen/h3"
+                    android:layout_below="@+id/topblue"
+                    android:textColor="@color/colorOrange"
+                    android:id="@+id/urdutextview"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/attachments_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_image"
+                android:background="@drawable/shape"
+                android:layout_marginBottom="@dimen/dist_15">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dist_10"
+                        android:layout_gravity="center"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/captureImage"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:src="@drawable/image" />
+
+                        <ImageView
+                            android:id="@+id/capture_video_btn"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:src="@drawable/video"/>
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:src="@drawable/audio"
+                            android:visibility="gone"/>
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:src="@drawable/pdf"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+                        android:id="@+id/image_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="@dimen/dist_10"
+                        android:paddingRight="@dimen/dist_10"
+                        android:paddingBottom="@dimen/dist_10"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/preview"
+                            android:textSize="@dimen/h3"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textColor="@color/colorGrey"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+                            <com.dohr.complaint.cell.UtilsClasses.NonScrollGridView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/gridlayout"
+                                android:numColumns="3"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:horizontalSpacing="@dimen/dist_5"
+                                android:verticalSpacing="@dimen/dist_5">
+                            </com.dohr.complaint.cell.UtilsClasses.NonScrollGridView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/video_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="-------------Video Preview-------------"
+                            android:textSize="@dimen/h3"
+                            android:textColor="@color/colorGrey"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_horizontal"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp">
+
+                            <VideoView
+                                android:id="@+id/video_preview"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginRight="16dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginTop="@dimen/dist_10"
+                                android:clickable="true"
+                                android:alpha="0.9"/>
+
+                            <ImageView
+                                android:id="@+id/playbtn"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:src="@drawable/ic_play_circle_filled_black_24dp"
+                                android:layout_centerInParent="true"/>
+
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+
+            <!--</android.support.v7.widget.CardView>-->
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ok"
+                android:layout_gravity="center"
+                android:id="@+id/submitbtn"
+                android:visibility="visible"
+                android:layout_below="@+id/attachments_section"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="16dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+<!--video player layout-->
+
+</LinearLayout>

@@ -1,0 +1,61 @@
+package com.dohr.complaint.cell.RoomSqliteDB;
+
+import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
+import android.arch.persistence.room.Query;
+
+import com.dohr.complaint.cell.firebase.ComplainData;
+import com.dohr.complaint.cell.modelClasses.AllCategory;
+import com.dohr.complaint.cell.modelClasses.ComplaintModel;
+import com.dohr.complaint.cell.modelClasses.Notification;
+import com.dohr.complaint.cell.modelClasses.SubComplaintModel;
+import com.dohr.complaint.cell.modelClasses.SubComplaintModel2;
+
+import java.util.List;
+
+import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
+
+@Dao
+public interface DaoAccess {
+    @Insert
+    void insertComplaintList(List<ComplaintModel.AllCategory> allCategories);
+    @Insert
+    void insertSubComplaintList(List<SubComplaintModel.SubCategory> subCategories);
+    @Insert
+    void insertSubComplaintList2(List<SubComplaintModel2.SubCategory2> subCategories2);
+
+    @Query("SELECT * FROM AllCategory")
+    List<ComplaintModel.AllCategory> fetchComplaintList();
+    @Query("SELECT * FROM SubCategory")
+    List<SubComplaintModel.SubCategory> fetchSubComplaintList();
+    @Query("SELECT * FROM SubCategory2")
+    List<SubComplaintModel2.SubCategory2> fetchSubComplaintList2();
+
+    @Query("SELECT * FROM SubCategory WHERE parentId = :id")
+    List<SubComplaintModel.SubCategory> fetchSubComplaintList(String id);
+    @Query("SELECT * FROM SubCategory2 WHERE parentId = :id")
+    List<SubComplaintModel2.SubCategory2> fetchSubComplaintList2(String id);
+
+
+    @Query("DELETE FROM AllCategory")
+    void deleteCategory();
+    @Query("DELETE FROM SubCategory")
+    void deleteSubCategory();
+    @Query("DELETE FROM SubCategory2")
+    void deleteSubCategory2();
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    //database
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertNotification(List<Notification> complainsList);
+
+    @Query("SELECT * FROM Notification")
+    List<Notification> getAllNoficitions();
+
+   /* @Query("DELETE FROM ComplainData WHERE notificationId = :userId")
+    void deleteNotification(int userId);
+*/
+}
