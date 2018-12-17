@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="260dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:id="@+id/dialogopen"
+    android:paddingBottom="@dimen/dist_5"
+    android:paddingLeft="@dimen/dist_5"
+    android:paddingRight="@dimen/dist_5"
+    android:paddingTop="@dimen/dist_5"
+    android:background="@drawable/custom_card"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:background="@color/colorOrange"
+        android:textColor="@color/colorWhite"
+        android:text="Congratulations!"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/dialog_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dist_5"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textSize="14sp"
+        android:padding="@dimen/dist_5"
+        android:textColor="@color/colordarkGrey"
+        android:text=" Your form has been submitted successfully." />
+
+
+    <Button
+        android:id="@+id/dialog_text"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_height="40dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:background="@drawable/greenshape"
+        android:textColor="@color/colorWhite"
+        android:text="OK"/>
+
+
+</LinearLayout>

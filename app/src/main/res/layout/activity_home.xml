@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".javaClasses.Home">
+
+
+    <Button
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/dist_10"
+        android:layout_marginEnd="@dimen/dist_10"
+        android:layout_marginLeft="@dimen/dist_10"
+        android:layout_marginRight="384dp"
+        android:layout_marginStart="@dimen/dist_10"
+        android:layout_marginTop="@dimen/dist_10"
+        android:background="@drawable/menu_icon"
+        android:gravity="right"
+        android:rotation="180"
+        android:visibility="gone" />
+
+<!--<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:elevation="4dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/shape"
+        android:layout_centerInParent="true"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:src="@drawable/logo2"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_newcomplaint"
+                    android:textColor="@color/colorGreen"
+                    android:textSize="16dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+            </LinearLayout>
+            <View
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorGreen"
+                android:layout_weight="1">
+
+            </View>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon1"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/app_newcomplaint"
+                    android:textColor="@color/colorGreen"
+                    android:textSize="16dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorGreen">
+        
+
+    </LinearLayout>-->
+<!--<android.support.v7.widget.Toolbar
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+</android.support.v7.widget.Toolbar>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/toolbar">
+      <!--  <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/menu"
+            android:layout_alignParentRight="true"/>-->
+
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/card_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="24dp">
+
+            <RelativeLayout
+                android:id="@+id/card_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+               android:background="@drawable/shape"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="55dp"
+                    android:padding="@dimen/dist_5"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="@dimen/dist_5"
+                        android:layout_marginRight="@dimen/dist_5"
+                        android:layout_marginTop="@dimen/dist_5"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"                            android:orientation="vertical"
+                            android:layout_weight="0.5"
+                            android:elevation="2dp"
+                            android:layout_marginLeft="@dimen/dist_5"
+                            android:layout_marginRight="@dimen/dist_5"
+                            android:background="@drawable/linear_bg"
+                            android:id="@+id/newcomplaint">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/form_img"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="نئی شکایت"
+                                android:textColor="#ba0113"
+                                android:textSize="16sp"
+                                android:layout_marginTop="3dp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="New Complaint"
+                                android:textSize="16sp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"                            android:orientation="vertical"
+                            android:layout_weight="0.5"
+                            android:elevation="2dp"
+                            android:layout_marginRight="@dimen/dist_5"
+                            android:layout_marginLeft="@dimen/dist_5"
+                            android:background="@drawable/linear_bg"
+                            android:id="@+id/checkstatus"
+                            android:onClick="dosomething">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/complaint_img"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="میری شکایات"
+                                android:textColor="#590591"
+                                android:textSize="16sp"
+                                android:layout_marginTop="3dp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="My Complaints"
+                                android:textSize="16sp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1"
+                        android:layout_marginRight="@dimen/dist_5"
+                        android:layout_marginLeft="@dimen/dist_5"
+                        android:gravity="center"
+                        android:layout_gravity="center">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"                            android:orientation="vertical"
+                            android:layout_weight="0.5"
+                            android:elevation="2dp"
+                            android:layout_marginLeft="@dimen/dist_5"
+                            android:layout_marginTop="@dimen/dist_5"
+                            android:layout_marginBottom="@dimen/dist_5"
+                            android:layout_marginRight="@dimen/dist_5"
+                            android:background="@drawable/linear_bg"
+                            android:id="@+id/notification">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/notify_img"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="اطلاعات"
+                                android:textColor="#e59d0a"
+                                android:textSize="16sp"
+                                android:layout_marginTop="3dp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Notifications"
+                                android:textSize="16sp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"                            android:orientation="vertical"
+                            android:layout_weight="0.5"
+                            android:elevation="2dp"
+                            android:layout_marginBottom="@dimen/dist_5"
+                            android:layout_marginTop="@dimen/dist_5"
+                            android:layout_marginRight="@dimen/dist_5"
+                            android:layout_marginLeft="@dimen/dist_5"
+                            android:background="@drawable/linear_bg"
+                            android:id="@+id/awareness"
+                            >
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/awareness_img"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="آگاہی"
+                                android:layout_marginTop="3dp"
+                                android:textSize="16sp"
+                                android:textColor="#12ae87"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Awareness"
+                                android:textSize="16sp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"/>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="@dimen/dist_10"
+                        android:layout_marginRight="@dimen/dist_5"
+                        android:layout_marginLeft="@dimen/dist_5"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"                            android:orientation="vertical"
+                            android:layout_weight="0.5"
+                            android:elevation="2dp"
+                            android:layout_marginLeft="@dimen/dist_5"
+                            android:layout_marginRight="@dimen/dist_5"
+                            android:background="@drawable/linear_bg"
+                            android:id="@+id/announcement">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/anounce_img"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="اعلانات"
+                                android:textColor="#035dbd"
+                                android:textSize="16sp"
+                                android:layout_marginTop="3dp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Announcements"
+                                android:textSize="16sp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"                            android:orientation="vertical"
+                            android:layout_weight="0.5"
+                            android:elevation="2dp"
+                            android:layout_marginRight="@dimen/dist_5"
+                            android:layout_marginLeft="@dimen/dist_5"
+                            android:background="@drawable/linear_bg"
+                            android:id="@+id/contactus">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/phone_img"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="رابطہ کریں"
+                                android:textColor="#333740"
+                                android:textSize="16sp"
+                                android:layout_marginTop="3dp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Contact US"
+                                android:textSize="16sp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true">
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:src="@drawable/logogreencircle"
+                    android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar_trans"
+        android:background="@android:color/transparent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/MyTheme">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/more"
+            android:id="@+id/more"
+            android:visibility="gone"
+            android:layout_gravity="right"
+            />
+
+
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>

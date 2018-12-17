@@ -1,0 +1,121 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">DHR</string>
+    <string name="internal_storage">internal storage</string>
+    <!--spalsh screen-->
+    <string name="app_slogan1">Directorate of Human Rights</string>
+    <string name="app_slogan2">Khyber Pakhtunkhwa</string>
+    <string name="app_poweredby">Powered by</string>
+    <string name="app_complaintcell">Complaint Cell</string>
+    <string name="app_Details">The Directorate of Human Rights is working for promotion, Protection &amp; Enforcement of Human Rights in Khyber Pakhtunkhwa.</string>
+
+    <!--log in screen-->
+    <string name="app_cnicno">CNIC Number</string>
+    <string name="app_Login">LOGIN</string>
+    <string name="app_Password">Password</string>
+    <string name="app_signin">SignIn</string>
+    <string name="app_please">Please Sign In to use the</string>
+    <string name="app_please1">App\s features</string>
+    <string name="app_Or">----------------------- or -----------------------</string>
+
+    <!--register screen-->
+    <string name="app_register">Register</string>
+    <string name="app_Name">Name</string>
+    <string name="app_Email">Email Address</string>
+    <string name="app_CNIC"> CNIC Number (Without dashes)</string>
+    <string name="app_City">City</string>
+    <string name="app_Signup">Sign Up</string>
+    <string name="app_Registerwithus">Register with Us</string>
+
+
+    <!--home screen-->
+    <string name="app_newcomplaint">New Complaint</string>
+    <string name="app_Status">Status:</string>
+    <string name="app_Notification">Notifications</string>
+    <string name="app_Alerts">Alerts</string>
+    <string name="app_complaintstatus">Complaint Status</string>
+
+    <!--complaint status screen-->
+
+    <string name="app_complaintname">Complaint Against</string>
+    <string name="app_resolved">Resolved</string>
+    <string name="app_Date">Date 21/09/2017</string>
+    <string name="app_Pending">Pending</string>
+    <string name="app_Rejected">Rejected</string>
+    <string name="app_details">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et sollicitudin odio, non fermentum nisl. Sed consequat libero sed condimentum faucibus. Aenean tristique in odio a bibendum. Donec consequat metus orci, et ultrices tortor eleifend ac.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="splashtext"></string>
+
+
+    <!--complaint info-->
+    <string name="complaintinfo"> Complaint Information</string>
+    <string name="complaintinformation">Please enter the information about your complaint</string>
+
+    <!--complaint Against-->
+    <string name="complaintTitle"> Complaint Against</string>
+    <string name="notifiTitle"> Directorate of Human Rights</string>
+    <string name="complaintinfor">Please enter the information of the person you are complaining about</string>
+
+    <!--complaint attachment-->
+    <string name="Attachment"> ATTACHMENTS </string>
+    <string name="description"> Please attach the evidence or any attachment in support of your complaint (Optional)</string>
+    <string name="contactusinfo"> Directorate of Human Rights is always at your service. You can contact us 24/7 through call, Email, Website or by visiting our facebook and twitter pages.</string>
+    <string name="preview"> ---------------- Previews ---------------- </string>
+
+
+    <!--Dimensions-->
+    <dimen name="h1">25dp</dimen>
+    <dimen name="h2">20dp</dimen>
+    <dimen name="h3">16dp</dimen>
+    <dimen name="h6">18dp</dimen>
+    <dimen name="para">14dp</dimen>
+    <dimen name="dist_5">5dp</dimen>
+    <dimen name="dist_10">10dp</dimen>
+    <dimen name="dist_15">15sp</dimen>
+    <dimen name="dist_20">20dp</dimen>
+    <dimen name="dist_25">25dp</dimen>
+    <dimen name="dist_30">30dp</dimen>
+
+    <!--validating form-->
+    <string name="nameerror">Enter a valid name</string>
+    <string name="emailerror">Enter a valid email</string>
+    <string name="mobilenoerror">Enter a valid mobile</string>
+    <string name="dateerror">Enter a valid date</string>
+    <string name="ageerror">Enter a valid age</string>
+    <string name="mobileerror">Enter a valid age</string>
+    <string name="passworderror">Enter a valid age</string>
+
+
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="phone">Phone</string>
+    <string name="alpha_numeric">Alpha Numeric (Max Length 12)</string>
+    <string name="submit">Submit</string>
+    <string name="confirm_email">Confirm Email</string>
+    <string name="terms_and_conditions">I agree to the terms and conditions</string>
+    <string name="max_value">Max Value (10)</string>
+    <string name="min_value">Min Value(2)</string>
+    <string name="value_range">Value between 2 and 10</string>
+    <string name="first_field">First field to verify</string>
+
+    <!--lorem epsum-->
+    <string name="loremepsum">The rights of children are defined in the Convention on the Rights of the Child. This convention brings together political, civil, economic, cultural and social child rights.The UN General Assembly adopted the Convention on 20 november 1989. Currently, 196 countries are party to it, including every member of the United Nations except for  the United States of America. The legal system in some federal states of the US are at odds with the provisions in the Convention. For instance  capital punishment is still permissible in some states as is the law that allows minors to be given a sentence of life imprisonment. The Netherlands ratified the UN Convention in 1995, with the exception of some reservations on the following three articles:
+
+Art. 26 on social security rights of children,
+Art. 37 on the application of adult criminal law for 16-17 year olds,
+Art. 40 on limiting legal aid and appeal to children.
+The Convention gives equal rights to all children, defined as any human being under the age of eighteen, without discrimination. The convention deals with children's rights in all situations that a child may find him/herself in during both easy and difficult times. It includes living conditions, health, education, parenting, parents, leisure but also for example covers the rights of children living on the streets, sickness and disability, those who are exploited and those who are fleeing. Children are entitled to protection at all times .
+
+According to the Convention on the Rights of the Child, the interests of the child must be the first consideration in all decisions affecting children. Children also have the right to be heard in all matters that concern them. The views of the child should be given appropriate consideration. Next to equality, respect for children is one of the  basic principles of the Convention.</string>
+    <string name="title_activity_google__maps_ofdhr">Map</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="app_mobileno">CNIC No</string>
+
+    <string name="title_aboutus">Directorate of Human Rights, a statutory and independent institution under the general supervision of Law, Parlimentary Affairs &amp; Human Rights Department Government of Khyber Pakhtunkhwa, is committed to upholding these core values.</string>
+
+
+</resources>

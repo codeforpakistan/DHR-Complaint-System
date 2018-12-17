@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".javaClasses.Directory"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/toolbar"
+        android:background="@color/colorGreen">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_btn"
+            android:layout_marginTop="@dimen/dist_10"
+            android:id="@+id/backbtn"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Directory"
+            android:layout_toRightOf="@+id/backbtn"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/dist_15"
+            android:textColor="@color/colorWhite"
+            android:textSize="16dp"
+            android:layout_marginTop="@dimen/dist_10"
+            android:layout_centerVertical="true"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="@dimen/dist_10"
+        android:layout_marginRight="@dimen/dist_10"
+        android:layout_marginLeft="@dimen/dist_10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:id="@+id/dtl_serial"
+            android:background="@color/colorOrange"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:text="S.# "
+                android:visibility="gone"
+
+                android:padding="@dimen/dist_5"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:text="Name "
+                android:padding="@dimen/dist_5"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:text="Designation"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:text="Office Number"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/swiperefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/dtl_serial"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="@dimen/dist_5"
+            android:layout_marginRight="@dimen/dist_5"
+            android:layout_marginBottom="3dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recy_dir"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                android:layout_marginTop="@dimen/dist_5"
+                android:layout_marginBottom="@dimen/dist_5"/>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+
+
+   <!-- <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_margin="@dimen/dist_5"
+        android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/colorWhite">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:background="@color/colorOrange"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:text="S.# "
+                        android:visibility="gone"
+
+                        android:padding="@dimen/dist_5"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:text="Name "
+                        android:padding="@dimen/dist_5"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:text="Designation"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:text="Office Number"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+
+                        android:paddingLeft="@dimen/dist_10"
+                        android:paddingBottom="@dimen/dist_5"
+                        android:paddingTop="@dimen/dist_5"
+                        android:text="1."
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/dist_5"
+                        android:text="M. Ghazanfar Ali"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dist_5"
+                        android:text="Director Human Rights"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:padding="@dimen/dist_5"
+                        android:text="091-2451635"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/colorgrey"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/dist_5"
+                        android:text="M. Ghazanfar Ali"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dist_5"
+                        android:text="Director Human Rights"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dist_5"
+                        android:text="091-2451635 (Ext.118)"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/dist_5"
+                        android:text="M. Ghazanfar Ali"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dist_5"
+                        android:text="Director Human Rights"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dist_5"
+                        android:text="091-2451635 (Ext.118)"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/colorgrey"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/dist_5"
+                        android:text="M. Ghazanfar Ali"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dist_5"
+                        android:text="Director Human Rights"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dist_5"
+                        android:text="091-2451635 (Ext.118)"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/dist_5"
+                        android:text="M. Ghazanfar Ali"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dist_5"
+                        android:text="Director Human Rights"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dist_5"
+                        android:text="091-2451635 (Ext.118)"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/colorgrey"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/dist_5"
+                        android:text="M. Ghazanfar Ali"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dist_5"
+                        android:text="Director Human Rights"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/dist_5"
+                        android:text="091-2451635 (Ext.118)"
+                        android:textColor="@color/colorGrey"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+    </ScrollView>-->
+
+    </RelativeLayout>

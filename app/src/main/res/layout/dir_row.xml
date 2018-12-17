@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+ <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorWhite"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+
+            android:paddingLeft="@dimen/dist_10"
+            android:paddingBottom="@dimen/dist_5"
+            android:paddingTop="@dimen/dist_5"
+            android:text="1."
+            android:textColor="@color/colorGrey"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:id="@+id/name_tv"
+            android:gravity="center_vertical"
+            android:layout_gravity="center"
+            android:padding="@dimen/dist_5"
+            android:text="M. Ghazanfar Ali"
+            android:textColor="@color/colordarkGrey"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:id="@+id/designation_txt"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dist_5"
+            android:text="Director Human Rights"
+            android:textColor="@color/colordarkGrey"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:id="@+id/phone_txt"
+            android:padding="@dimen/dist_5"
+            android:text="091-2451635"
+            android:textColor="@color/colordarkGrey"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</LinearLayout>

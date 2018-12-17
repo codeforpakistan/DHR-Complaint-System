@@ -1,0 +1,20 @@
+package com.dohr.complaint.cell.RoomSqliteDB;
+
+import android.arch.persistence.db.SupportSQLiteOpenHelper;
+import android.arch.persistence.room.Database;
+import android.arch.persistence.room.DatabaseConfiguration;
+import android.arch.persistence.room.InvalidationTracker;
+import android.arch.persistence.room.RoomDatabase;
+
+import com.dohr.complaint.cell.firebase.ComplainData;
+import com.dohr.complaint.cell.modelClasses.AllCategory;
+import com.dohr.complaint.cell.modelClasses.ComplaintModel;
+import com.dohr.complaint.cell.modelClasses.ComplaintType;
+import com.dohr.complaint.cell.modelClasses.Notification;
+import com.dohr.complaint.cell.modelClasses.SubComplaintModel;
+import com.dohr.complaint.cell.modelClasses.SubComplaintModel2;
+
+@Database(entities = {ComplaintModel.AllCategory.class, SubComplaintModel.SubCategory.class, SubComplaintModel2.SubCategory2.class,  Notification.class}, version = 2, exportSchema = false)
+public abstract class DhrDatabase extends RoomDatabase {
+    public abstract DaoAccess daoAccess() ;
+}

@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".javaClasses.MyComplaintDetail">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:visibility="gone"
+        android:background="@drawable/toolbar">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/toolbar"
+        android:background="@color/colorGreen">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_btn"
+            android:layout_marginTop="@dimen/dist_10"
+            android:id="@+id/backbtn"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My Complaint's Details"
+            android:layout_toRightOf="@+id/backbtn"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/dist_15"
+            android:textColor="@color/colorWhite"
+            android:textSize="16dp"
+            android:layout_marginTop="@dimen/dist_10"
+            android:layout_centerVertical="true"/>
+
+
+    </RelativeLayout>
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/notice_status"
+      android:layout_below="@+id/toolbar">
+
+      <RelativeLayout
+          android:id="@+id/statusname"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentTop="true"
+          android:layout_marginBottom="@dimen/dist_10"
+          android:layout_marginLeft="50dp"
+          android:layout_marginRight="50dp"
+          android:layout_marginTop="7dp"
+          android:background="@drawable/statusdetails"
+          android:gravity="center"
+          android:padding="@dimen/dist_15">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:orientation="horizontal">
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:gravity="center"
+                  android:text="Status:"
+                  android:textStyle="bold"
+                  android:textColor="@color/colorWhite"
+                  android:textSize="15sp" />
+
+              <TextView
+                  android:id="@+id/title1"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_marginLeft="@dimen/dist_5"
+                  android:gravity="center"
+                  android:text="Approved"
+                  android:textColor="@color/colorWhite"
+                  android:textSize="14sp" />
+          </LinearLayout>
+
+
+      </RelativeLayout>
+
+  </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:scrollbars="none"
+        android:layout_below="@+id/notice_status">
+
+        <!--<android.support.v7.widget.CardView
+            android:id="@+id/card_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:cardBackgroundColor="@color/colorWhite"
+            app:cardCornerRadius="4dp">-->
+
+
+
+           <!-- <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Notice:"
+                    android:textColor="#333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="notice name"
+                    android:textColor="@drawable/green"
+                    android:textSize="16sp" />
+
+            </LinearLayout>-->
+
+            <RelativeLayout
+                android:id="@+id/contentlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_container1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="1dp"
+                    android:layout_marginBottom="@dimen/dist_10">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/shapee"
+                            android:text="Complaint Against"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="17sp"
+                            android:gravity="center_vertical"
+                            android:textStyle="bold"
+                            android:paddingLeft="@dimen/dist_10"/>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@color/colorWhite"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:text="Complaint Against"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:id="@+id/dept_name"
+                                android:text="Sumaira Idrees"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:text="Mobile Number"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:id="@+id/phone_no"
+                                android:text="03128876432"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@color/colorWhite"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:text="City"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:text="Peshawar"
+                                android:id="@+id/city"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:text="Email Address"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:id="@+id/User_email"
+                                android:maxLines="2"
+                                android:text="Not Available"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorWhite"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="5dp"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:text="Complete Address"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:maxLines="3"
+                                android:padding="@dimen/dist_5"
+                                android:id="@+id/complete_address"
+                                android:text="Lorem Ipsum is simply dummy text.."
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_container2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/card_container1"
+                    android:layout_marginBottom="@dimen/dist_10"
+                    android:layout_marginTop="@dimen/dist_10"
+                    app:cardBackgroundColor="@color/colorlightdarkgrey"
+                    app:cardCornerRadius="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/shapee"
+                            android:padding="@dimen/dist_5"
+                            android:text="Complaint Information"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="17sp"
+                            android:gravity="center_vertical"
+                            android:textStyle="bold"
+                            android:paddingLeft="10dp"/>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:text="Complaint Type"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:id="@+id/complaint_type"
+                                android:text="Minority Rights"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@color/colorWhite"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:text="Sub Complaint Type"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:id="@+id/subcomplaint_type"
+                                android:text="Voilence Against Minority"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:text="Subject"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:gravity="left"
+                                android:lineSpacingExtra="1dp"
+                                android:maxLines="2"
+                                android:padding="@dimen/dist_5"
+                                android:id="@+id/subject"
+                                android:text="Hate Speech against Christinity"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorWhite"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingBottom="@dimen/dist_10"
+                            android:paddingTop="@dimen/dist_5"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:padding="@dimen/dist_5"
+                                android:text="Details"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+
+                            <TextView
+                                android:id="@+id/details_complaint"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:gravity="left"
+                                android:padding="@dimen/dist_5"
+                                android:text="Lorem Ipsum is simply dummy text of the printing and typesett ght djjhj dcd"
+                                android:textColor="@color/colorGrey"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_container3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/card_container2"
+                    android:layout_marginBottom="@dimen/dist_20"
+                    android:layout_marginLeft="@dimen/dist_5"
+                    android:layout_marginRight="@dimen/dist_5"
+                    app:cardBackgroundColor="@color/colorlightdarkgrey"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/shapee"
+                            android:padding="@dimen/dist_5"
+                            android:text="Attachments"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dist_15" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="4"
+                            android:paddingLeft="@dimen/dist_10"
+                            android:paddingTop="@dimen/dist_10"
+                            android:paddingRight="@dimen/dist_10"
+                            android:paddingBottom="@dimen/dist_10">
+
+                            <ImageView
+                                android:layout_weight="1"
+                                android:id="@+id/image1"
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginTop="@dimen/dist_10"
+                                android:scaleType="center"/>
+
+                            <ImageView
+                                android:layout_weight="1"
+                                android:id="@+id/image2"
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginTop="@dimen/dist_10"
+                                android:scaleType="center"/>
+
+                            <ImageView
+                                android:layout_weight="1"
+                                android:id="@+id/image3"
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginTop="@dimen/dist_10"
+                                android:scaleType="center"/>
+
+                            <ImageView
+                                android:layout_weight="1"
+                                android:id="@+id/image4"
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginTop="@dimen/dist_10"
+                                android:scaleType="center"/>
+
+                            <ImageView
+                                android:layout_weight="1"
+                                android:id="@+id/image5"
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                android:visibility="gone"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginTop="@dimen/dist_10"
+                                android:scaleType="center"/>
+
+
+                        </LinearLayout>
+
+
+
+
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </RelativeLayout>
+
+
+        <!--</android.support.v7.widget.CardView>-->
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

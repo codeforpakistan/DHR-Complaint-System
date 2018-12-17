@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".javaClasses.AdvanceWebviewClass">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:id="@+id/toolbar"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/colorGreen">
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/backbtn"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/dist_10"
+            android:gravity="center_vertical"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back_btn"
+                android:layout_centerVertical="true"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dist_5"
+            android:layout_marginLeft="@dimen/dist_10"
+            android:layout_toRightOf="@+id/backbtn">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Directorate of Human Rights"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/dist_15"
+                android:textColor="@color/colorWhite"
+                android:textSize="16dp"
+                android:layout_centerVertical="true"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ProgressBar android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/progressBar1"
+        android:layout_gravity="center_horizontal"
+        android:indeterminateTint="@android:color/holo_orange_light"
+        android:layout_centerInParent="true"/>
+
+        <WebView
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+</LinearLayout>
