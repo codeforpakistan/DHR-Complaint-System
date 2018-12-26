@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,9 +19,11 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.dohr.complaint.cell.R;
+import com.dohr.complaint.cell.UtilsClasses.CheckNetworkConnection;
 import com.dohr.complaint.cell.UtilsClasses.Config;
 import com.dohr.complaint.cell.UtilsClasses.UserPrefence;
 import com.dohr.complaint.cell.interfaceClasses.ComplaintApi;
@@ -56,8 +59,11 @@ public class ComplaintStatus extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     String user_ids, apiToken;
     SwipeRefreshLayout swiperefresh;
+    RelativeLayout complaint_listlayout;
+    RelativeLayout no_complaint;
     String st_ComplaintStatus,st_DeptName,st_PersonPhoneNumber,
             st_Location,st_PersonEmail,st_PersonAddress,st_ComplaintType,st_ComplaintSubType,st_Subject,st_Detail,st_Image;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +71,11 @@ public class ComplaintStatus extends AppCompatActivity {
         setContentView(R.layout.activity_complaint_status);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         backbtn = findViewById(R.id.backbtn);
+        no_complaint = findViewById(R.id.no_complaint);
         swiperefresh = findViewById(R.id.swiperefresh);
+        complaint_listlayout = findViewById(R.id.complaint_listlayout);
+
+        swiperefresh.setRefreshing(true);
         swiperefresh.setColorSchemeColors(getResources().getColor(R.color.colorOrange));
         swiperefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -73,8 +83,6 @@ public class ComplaintStatus extends AppCompatActivity {
                 displayAllCompliants();
             }
         });
-
-        swiperefresh.setRefreshing(true);
 
         sharedpreferences = getSharedPreferences(UserPref, Context.MODE_PRIVATE);
 
@@ -90,11 +98,20 @@ public class ComplaintStatus extends AppCompatActivity {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        boolean isNetworkAvailable = CheckNetworkConnection.checkNetworkConnection(this);
+        if (isNetworkAvailable){
+            displayAllCompliants();
+        }
+        else {
+            swiperefresh.setRefreshing(false);
+            no_complaint.setVisibility(View.VISIBLE);
+            Snackbar snackbar = Snackbar.make(complaint_listlayout, "No internet connection",Snackbar.LENGTH_LONG);
 
-        displayAllCompliants();
-
-
-        // prepareMovieData();
+            View view = snackbar.getView();
+            view.setBackgroundColor(getResources().getColor(R.color.colorOrange));
+            snackbar.show();
+            //Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
+        }
 
 
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
@@ -215,6 +232,7 @@ public class ComplaintStatus extends AppCompatActivity {
                             recyclerView.setAdapter(recyclerViewAdapter);
                             recyclerViewAdapter.notifyDataSetChanged();
                             swiperefresh.setRefreshing(false);
+                            no_complaint.setVisibility(View.GONE);
                             runLayoutAnimation(recyclerView);
                             String image = c.getImage();
                             Log.e("image", ""+image);
@@ -225,6 +243,11 @@ public class ComplaintStatus extends AppCompatActivity {
                             Log.e("data", "onResponse: ");
                         }
                     }
+                    else if (response.body().getSuccess().equals("false")){
+
+                        no_complaint.setVisibility(View.VISIBLE);
+                        swiperefresh.setRefreshing(false);
+                    }
 
 
 
@@ -234,7 +257,9 @@ public class ComplaintStatus extends AppCompatActivity {
             @Override
             public void onFailure(Call<ListofcomplaintsDemo> call, Throwable t) {
                 Log.e("Message", "" + t.getMessage());
-                Toast.makeText(ComplaintStatus.this, "Network error", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ComplaintStatus.this, "Network error", Toast.LENGTH_SHORT).show();
+                no_complaint.setVisibility(View.VISIBLE);
+                swiperefresh.setRefreshing(false);
             }
         });
     }

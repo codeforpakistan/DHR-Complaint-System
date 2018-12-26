@@ -18,7 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/toolbar"
-        android:background="@color/colorGreen">
+        android:background="@color/colorGreen"
+        android:visibility="visible">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -36,7 +37,7 @@
             android:textStyle="bold"
             android:layout_marginLeft="@dimen/dist_15"
             android:textColor="@color/colorWhite"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:layout_marginTop="@dimen/dist_10"
             android:layout_centerVertical="true"/>
 
@@ -148,8 +149,8 @@
                     android:id="@+id/card_container1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:elevation="1dp"
-                    android:layout_marginBottom="@dimen/dist_10">
+                    android:layout_marginBottom="@dimen/dist_10"
+                    app:cardCornerRadius="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -184,7 +185,7 @@
                                 android:padding="@dimen/dist_5"
                                 android:text="Complaint Against"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/para" />
 
 
                             <TextView
@@ -195,7 +196,7 @@
                                 android:id="@+id/dept_name"
                                 android:text="Sumaira Idrees"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -213,7 +214,7 @@
                                 android:padding="@dimen/dist_5"
                                 android:text="Mobile Number"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/para" />
 
 
                             <TextView
@@ -224,7 +225,7 @@
                                 android:id="@+id/phone_no"
                                 android:text="03128876432"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -243,7 +244,7 @@
                                 android:padding="@dimen/dist_5"
                                 android:text="City"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/para" />
 
 
                             <TextView
@@ -254,7 +255,7 @@
                                 android:text="Peshawar"
                                 android:id="@+id/city"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -272,7 +273,7 @@
                                 android:padding="@dimen/dist_5"
                                 android:text="Email Address"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/para" />
 
 
                             <TextView
@@ -281,10 +282,9 @@
                                 android:layout_weight="0.5"
                                 android:padding="@dimen/dist_5"
                                 android:id="@+id/User_email"
-                                android:maxLines="2"
                                 android:text="Not Available"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -305,7 +305,7 @@
                                 android:padding="@dimen/dist_5"
                                 android:text="Complete Address"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/para" />
 
 
                             <TextView
@@ -317,7 +317,7 @@
                                 android:id="@+id/complete_address"
                                 android:text="Lorem Ipsum is simply dummy text.."
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -368,7 +368,7 @@
                                 android:padding="@dimen/dist_5"
                                 android:text="Complaint Type"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/para" />
 
 
                             <TextView
@@ -379,7 +379,7 @@
                                 android:id="@+id/complaint_type"
                                 android:text="Minority Rights"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -398,7 +398,7 @@
                                 android:padding="@dimen/dist_5"
                                 android:text="Sub Complaint Type"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/para" />
 
 
                             <TextView
@@ -409,7 +409,7 @@
                                 android:id="@+id/subcomplaint_type"
                                 android:text="Voilence Against Minority"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -427,7 +427,7 @@
                                 android:padding="@dimen/dist_5"
                                 android:text="Subject"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/para" />
 
 
                             <TextView
@@ -441,7 +441,7 @@
                                 android:id="@+id/subject"
                                 android:text="Hate Speech against Christinity"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -462,7 +462,7 @@
                                 android:padding="@dimen/dist_5"
                                 android:text="Details"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="@dimen/para" />
 
 
                             <TextView
@@ -474,7 +474,7 @@
                                 android:padding="@dimen/dist_5"
                                 android:text="Lorem Ipsum is simply dummy text of the printing and typesett ght djjhj dcd"
                                 android:textColor="@color/colorGrey"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 

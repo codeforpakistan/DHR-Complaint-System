@@ -65,7 +65,6 @@
                                 android:id="@+id/mobile_no"
                                 android:maxLines="1"
                                 android:paddingTop="@dimen/dist_10"
-                                android:text="03001234567"
                                 android:inputType="text"
                                 android:maxLength="11"
                                 android:layout_weight="0.5"
@@ -109,9 +108,7 @@
                             android:id="@+id/city_name"
                             android:maxLines="1"
                             android:paddingTop="@dimen/dist_10"
-                            android:text="peshawar"
                             android:inputType="text"
-                            android:maxLength="11"
                             android:layout_weight="0.5"
                             android:textColor="@color/colorblack"/>
 
@@ -151,9 +148,7 @@
                                 android:id="@+id/address_name"
                                 android:maxLines="1"
                                 android:paddingTop="@dimen/dist_10"
-                                android:text="Address"
                                 android:inputType="text"
-                                android:maxLength="11"
                                 android:layout_weight="0.5"
                                 android:textColor="@color/colorblack"/>
 
@@ -193,9 +188,7 @@
                                 android:id="@+id/email_address"
                                 android:maxLines="1"
                                 android:paddingTop="@dimen/dist_10"
-                                android:text="Johny@gmail.com"
                                 android:inputType="text"
-                                android:maxLength="11"
                                 android:layout_weight="0.5"
                                 android:textColor="@color/colorblack"/>
 
@@ -226,6 +219,7 @@
                             android:textColorHint="@color/colorGrey"
                             android:hint="Update Password"
                             android:textSize="15sp"
+                            app:passwordToggleEnabled="true"
                             android:imeOptions="actionNext">
 
                             <EditText
@@ -236,9 +230,7 @@
                                 android:id="@+id/password_user"
                                 android:maxLines="1"
                                 android:paddingTop="@dimen/dist_10"
-                                android:text="********"
-                                android:inputType="text"
-                                android:maxLength="11"
+                                android:inputType="textPassword"
                                 android:layout_weight="0.5"
                                 android:textColor="@color/colorblack"/>
 

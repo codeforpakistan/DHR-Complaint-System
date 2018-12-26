@@ -1,9 +1,10 @@
 package com.dohr.complaint.cell.modelClasses;
 
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ForgetPassVerification {
+public class SubAllCat {
 
     @SerializedName("success")
     @Expose
@@ -11,9 +12,12 @@ public class ForgetPassVerification {
     @SerializedName("status")
     @Expose
     private Integer status;
-    @SerializedName("user")
+    @SerializedName("message")
     @Expose
-    private User user;
+    private String message;
+    @SerializedName("Sub Categories")
+    @Expose
+    private List<SubComplaintModel.SubCategory> subCategories = null;
 
     public String getSuccess() {
         return success;
@@ -31,20 +35,30 @@ public class ForgetPassVerification {
         this.status = status;
     }
 
-    public User getUser() {
-        return user;
+    public String getMessage() {
+        return message;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setMessage(String message) {
+        this.message = message;
     }
+
+    public List<SubComplaintModel.SubCategory> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(List<SubComplaintModel.SubCategory> subCategories) {
+        this.subCategories = subCategories;
+    }
+
 
     @Override
     public String toString() {
-        return "ForgetPassVerification{" +
+        return "SubAllCat{" +
                 "success='" + success + '\'' +
                 ", status=" + status +
-                ", user=" + user +
+                ", message='" + message + '\'' +
+                ", subCategories=" + subCategories +
                 '}';
     }
 }

@@ -18,7 +18,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:visibility="gone"
-
             android:paddingLeft="@dimen/dist_10"
             android:paddingBottom="@dimen/dist_5"
             android:paddingTop="@dimen/dist_5"

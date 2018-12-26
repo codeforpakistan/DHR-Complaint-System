@@ -30,7 +30,7 @@
             android:textStyle="bold"
             android:layout_marginLeft="@dimen/dist_15"
             android:textColor="@color/colorWhite"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:layout_marginTop="@dimen/dist_10"
             android:layout_centerVertical="true"/>
 
@@ -41,10 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginTop="@dimen/dist_10"
-        android:layout_marginRight="@dimen/dist_10"
-        android:layout_marginLeft="@dimen/dist_10">
+        android:layout_below="@+id/toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,7 +59,6 @@
                 android:layout_gravity="center_vertical"
                 android:text="S.# "
                 android:visibility="gone"
-
                 android:padding="@dimen/dist_5"
                 android:textColor="@color/colorWhite"
                 android:textSize="12sp" />
@@ -103,9 +99,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/dtl_serial"
-            android:layout_marginTop="16dp"
-            android:layout_marginLeft="@dimen/dist_5"
-            android:layout_marginRight="@dimen/dist_5"
             android:layout_marginBottom="3dp">
 
             <android.support.v7.widget.RecyclerView

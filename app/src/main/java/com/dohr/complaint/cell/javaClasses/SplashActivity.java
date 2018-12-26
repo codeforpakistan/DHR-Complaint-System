@@ -18,11 +18,11 @@ import com.dohr.complaint.cell.RoomSqliteDB.DhrDatabase;
 import com.dohr.complaint.cell.UtilsClasses.Config;
 import com.dohr.complaint.cell.interfaceClasses.ComplaintApi;
 import com.dohr.complaint.cell.interfaceClasses.SubComplaintApi;
-import com.dohr.complaint.cell.interfaceClasses.SubComplaintApi2;
 import com.dohr.complaint.cell.modelClasses.AllCategory;
 import com.dohr.complaint.cell.modelClasses.ComplaintModel;
+import com.dohr.complaint.cell.modelClasses.SubAllCat;
 import com.dohr.complaint.cell.modelClasses.SubComplaintModel;
-import com.dohr.complaint.cell.modelClasses.SubComplaintModel2;
+
 
 
 import java.util.HashMap;
@@ -48,19 +48,22 @@ public class SplashActivity extends AppCompatActivity {
     private Retrofit retrofit;
     private static final String DATABASE_NAME = "demo_db";
     private DhrDatabase mDatabase;
+    Map<String, String> map = new HashMap<>();
     SharedPreferences sharedpreferences,sharedpreferences2;
     String mobileNo,api_token;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        sharedpreferences2 = getSharedPreferences(UserPref,
-                Context.MODE_PRIVATE);
         sharedpreferences = getSharedPreferences(LOGIN_PREF,
                 Context.MODE_PRIVATE);
-        api_token = sharedpreferences2.getString(Api_token, "No Data");
-        Log.e(TAG, "onCreate: "+api_token);
+        sharedpreferences2 = getSharedPreferences(UserPref,
+                Context.MODE_PRIVATE);
+
+
+
         mobileNo = sharedpreferences.getString(MOBILE_NO,"No data");
+        api_token = sharedpreferences2.getString(Api_token,"No data");
         setUi();
 
     }
@@ -76,7 +79,6 @@ public class SplashActivity extends AppCompatActivity {
                 if (isNetworkAvailable()){
                     getComplaintsCategories();
                     getSubComplaintCategories();
-                    getSubComplaintCategories2();
                 }else {
                     if (mDatabase.daoAccess().fetchSubComplaintList().size() > 0){
                         if (!mobileNo.equals("No data")){
@@ -124,13 +126,13 @@ public class SplashActivity extends AppCompatActivity {
 
 
 
-    private void getSubComplaintCategories() {
-        Map<String, String> map = new HashMap<>();
-        map.put("api_token", api_token);
-        map.put("category_id", "2");
+   private void getSubComplaintCategories() {
 
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .connectTimeout(1, TimeUnit.MINUTES)
+            map.put("api_token", api_token);
+            //map.put("category_id", "1");
+
+            OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                    .connectTimeout(1, TimeUnit.MINUTES)
                 .readTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
                 .build();
@@ -142,10 +144,10 @@ public class SplashActivity extends AppCompatActivity {
                 .build();
 
         SubComplaintApi api = retrofit.create(SubComplaintApi.class);
-        Call<SubComplaintModel> call = api.getSubList(map);
-        call.enqueue(new Callback<SubComplaintModel>() {
+        Call<SubAllCat> call = api.getSubList(map);
+        call.enqueue(new Callback<SubAllCat>() {
             @Override
-            public void onResponse(Call<SubComplaintModel> call, final Response<SubComplaintModel> response) {
+            public void onResponse(Call<SubAllCat> call, final Response<SubAllCat> response) {
                 String success = response.body().getSuccess();
                 Log.e(TAG, "onResponse: "+success );
                 if (response.isSuccessful()){
@@ -156,77 +158,8 @@ public class SplashActivity extends AppCompatActivity {
                                mDatabase.daoAccess().deleteSubCategory();
                                 final List<SubComplaintModel.SubCategory> list = response.body().getSubCategories();
                                 Log.e(TAG, ""+list.size());
-                                Log.e(TAG, "list "+list.toString());
+                                Log.e(TAG, "checklistofdata "+list.toString());
                                 mDatabase.daoAccess () . insertSubComplaintList (list);
-                                /*if (!mobileNo.equals("No data")){
-                                    startActivity(new Intent(SplashActivity.this, Home.class));
-                                    finish();
-                                    Log.e(TAG, "for home: " );
-                                }else {
-                                    startActivity(new Intent(SplashActivity.this, LogIn.class));
-                                    finish();
-                                    Log.e(TAG, "for login: " );
-
-                                }*/
-                                /*startActivity(new Intent(SplashActivity.this, LogIn.class));
-                                finish();*/
-
-                                //there
-                                //g
-                                //insert tu kar diya 3rd layer phir?
-                                //first is ko check karty hai
-                                //then sho karty hai ok
-                                //app hai mobile mai existing ?
-                                //hn
-                                //uninstall karook
-                            }
-                        }) .start();
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<SubComplaintModel> call, Throwable t) {
-                Log.e(TAG, "onResponse: "+t.getMessage() );
-            }
-        });
-    }
-    private void getSubComplaintCategories2() {
-
-        //kia howa? charger lagaya there ? g splash say agay ni jrai app :( han han i know
-        Map<String, String> map = new HashMap<>();
-        map.put("api_token", api_token);
-        map.put("sub_category_id", "1");
-
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .connectTimeout(1, TimeUnit.MINUTES)
-                .readTimeout(30, TimeUnit.SECONDS)
-                .writeTimeout(30, TimeUnit.SECONDS)
-                .build();
-
-        retrofit = new Retrofit.Builder()
-                .baseUrl(Config.BaseUrl)
-                .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        SubComplaintApi2 api = retrofit.create(SubComplaintApi2.class);
-        Call<SubComplaintModel2> call = api.getSubList2(map);
-        call.enqueue(new Callback<SubComplaintModel2>() {
-            @Override
-            public void onResponse(Call<SubComplaintModel2> call, final Response<SubComplaintModel2> response) {
-                String success = response.body().getSuccess();
-                Log.e(TAG, "onResponse: "+success );
-                if (response.isSuccessful()){
-                    if (success.equals("true")){
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                               mDatabase.daoAccess().deleteSubCategory2();
-                                final List<SubComplaintModel2.SubCategory2> list = response.body().getSubCategories();
-                                Log.e(TAG, ""+list.size());
-                                Log.e(TAG, "sublist2 "+list.toString());
-                                mDatabase.daoAccess () . insertSubComplaintList2 (list);
                                 if (!mobileNo.equals("No data")){
                                     startActivity(new Intent(SplashActivity.this, Home.class));
                                     finish();
@@ -246,15 +179,15 @@ public class SplashActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<SubComplaintModel2> call, Throwable t) {
+            public void onFailure(Call<SubAllCat> call, Throwable t) {
                 Log.e(TAG, "onResponse: "+t.getMessage() );
             }
         });
     }
 
     private void getComplaintsCategories() {
-        Map<String, String> map = new HashMap<>();
-      //  map.put("api_token", "xNI2rtUd8fs4DChNRfMNHg9SzLYJgzzKk0EqQ2PFYXpxosgR3VyIUn9ZjhTx");
+
+       map.put("api_token", api_token);
         retrofit = new Retrofit.Builder()
                 .baseUrl(Config.BaseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -277,7 +210,46 @@ public class SplashActivity extends AppCompatActivity {
                                 mDatabase.daoAccess().deleteCategory();
                                List<ComplaintModel.AllCategory> list = response.body().getAllCategories();
                                 Log.e(TAG, ""+list.size());
-                                Log.e(TAG, "sublist "+list.toString());
+                                Log.e(TAG, "list "+list.toString());
+                                mDatabase.daoAccess () . insertComplaintList (list);
+
+                            }
+                        }) .start();
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<ComplaintModel> call, Throwable t) {
+                Log.e(TAG, "onResponse: "+t.getMessage() );
+            }
+        });
+    }
+    private void getSubComplaintsCategories() {
+
+       map.put("api_token", api_token);
+        retrofit = new Retrofit.Builder()
+                .baseUrl(Config.BaseUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ComplaintApi api = retrofit.create(ComplaintApi.class);
+        Call<ComplaintModel> call = api.getSubCatList(map);
+        call.enqueue(new Callback<ComplaintModel>() {
+            @Override
+            public void onResponse(Call<ComplaintModel> call, final Response<ComplaintModel> response) {
+
+
+                String success = response.body().getSuccess();
+                Log.e(TAG, "onResponse: "+success );
+                if (response.isSuccessful()){
+                    if (success.equals("true")){
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mDatabase.daoAccess().deleteCategory();
+                               List<ComplaintModel.AllCategory> list = response.body().getAllCategories();
+                                Log.e(TAG, ""+list.size());
+                                Log.e(TAG, "list "+list.toString());
                                 mDatabase.daoAccess () . insertComplaintList (list);
 
                             }

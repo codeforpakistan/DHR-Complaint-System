@@ -34,11 +34,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/album_dp_50"
         android:orientation="horizontal"
         android:padding="@dimen/dist_10">
 
         <ImageView
+            android:id="@+id/back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/back_button"
@@ -48,7 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="About Us"
-            android:textSize="18sp"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="@dimen/dist_10"
             android:textColor="@color/ef_white"
@@ -196,7 +198,7 @@
                 android:layout_height="15dp"
                 android:layout_marginTop="@dimen/dist_5"
                 android:layout_toRightOf="@id/ic6"
-                android:layout_marginLeft="@dimen/dist_20"
+                android:layout_marginLeft="19dp"
                 android:src="@drawable/bullet_icon"/>
 
         </RelativeLayout>
@@ -259,7 +261,7 @@
                 android:layout_height="15dp"
                 android:layout_marginTop="@dimen/dist_5"
                 android:layout_toRightOf="@id/bn3"
-                android:layout_marginLeft="@dimen/dist_10"
+                android:layout_marginLeft="9dp"
                 android:src="@drawable/bullet_icon"/>
 
         </RelativeLayout>
@@ -305,7 +307,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bn5"
-            android:layout_alignParentRight="true"
             android:gravity="center_horizontal"
             android:layout_marginLeft="80dp"
             android:layout_toRightOf="@+id/inclusive"
@@ -314,15 +315,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Integrity"
-                android:textSize="10sp"
+                android:textSize="16sp"
                 android:id="@+id/bn6"/>
 
             <ImageView
-                android:layout_width="10dp"
-                android:layout_height="10dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_marginTop="@dimen/dist_5"
                 android:layout_toRightOf="@id/bn6"
-                android:layout_marginLeft="@dimen/dist_20"
+                android:layout_marginLeft="16dp"
                 android:src="@drawable/bullet_icon"/>
 
         </RelativeLayout>
@@ -349,8 +350,8 @@
             android:id="@+id/pro">
 
             <ImageView
-                android:layout_width="10dp"
-                android:layout_height="10dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_marginTop="@dimen/dist_5"
                 android:id="@+id/bn7"
                 android:layout_marginRight="@dimen/dist_10"
@@ -382,9 +383,9 @@
                 android:id="@+id/bn9"/>
 
             <ImageView
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginLeft="@dimen/dist_15"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="19dp"
                 android:layout_marginTop="@dimen/dist_5"
                 android:layout_toRightOf="@id/bn9"
                 android:src="@drawable/bullet_icon"/>

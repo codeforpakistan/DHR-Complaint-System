@@ -30,11 +30,13 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.afollestad.materialcamera.MaterialCamera;
 import com.dohr.complaint.cell.R;
+import com.dohr.complaint.cell.UtilsClasses.CheckNetworkConnection;
 import com.dohr.complaint.cell.UtilsClasses.Config;
 import com.dohr.complaint.cell.UtilsClasses.FileUtils;
 import com.dohr.complaint.cell.UtilsClasses.NonScrollGridView;
@@ -87,7 +89,7 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
     ImageView submitbtn, capture_video_btn,backbtn,captureImage,back_shabtn;
     private static final int REQUEST_TAKE_PHOTO1=6000;
     private String mCurrentPhotoPath;
-    String type, subtype,subcomplaint2,subject, details, name, mobileno, address, personemail, personaddress;
+    String type, subtype,subject, details, name, mobileno, address, personemail, personaddress;
     ProgressDialog progressDialog;
     HashMap<String,String> map = new HashMap<>();
     HashMap<String,RequestBody> data_map = new HashMap<>();
@@ -105,6 +107,7 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
     LinearLayout image_layout, video_layout;
     VideoView video_preview;
     ImageAdapter mImageAdapter;
+    LinearLayout complaint_submitlayout;
     List<Uri> imagelist = new ArrayList<>();
     private List<MultipartBody.Part> fileParts=new ArrayList<>();
     String compressedVideoPath;
@@ -113,11 +116,11 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attachment_submit);
+        complaint_submitlayout = findViewById(R.id.complaint_submitlayout);
         // intents
         Intent intentt = getIntent();
         type =  intentt.getStringExtra("ComplaintType");
         subtype = intentt.getStringExtra("subcomplaint");
-        subcomplaint2 = intentt.getStringExtra("subcomplaint2");
         subject = intentt.getStringExtra("subject");
         details = intentt.getStringExtra("details");
         name = intentt.getStringExtra("name");
@@ -143,9 +146,6 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
         sharedpreferences = getSharedPreferences(UserPref,Context.MODE_PRIVATE);
         user_ids = sharedpreferences.getString(UserPrefence.User_id,"no id");
         apiToken = sharedpreferences.getString(UserPrefence.Api_token,"no data");
-
-        Log.e( "apitoken",apiToken);
-
         }
 /****************************************DialogBox on button click***************************/
 
@@ -169,9 +169,25 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
                                 progressDialog.setTitle("Please wait");
                                 progressDialog.setMessage("Uploading data...");
                                 progressDialog.setCanceledOnTouchOutside(false);
-                                progressDialog.show();
-                                dataUploadToServir();
-                                previewDilaog.dismiss();
+                                boolean isNetworkAvailable = CheckNetworkConnection.checkNetworkConnection(AttachmentSubmit.this);
+                                if (isNetworkAvailable){
+                                    progressDialog.show();
+                                    dataUploadToServir();
+                                    previewDilaog.dismiss();
+                                }
+                                else {
+                                    progressDialog.dismiss();
+                                    //no_complaint.setVisibility(View.VISIBLE);
+                                    Snackbar snackbar = Snackbar.make(complaint_submitlayout, "No internet connection",Snackbar.LENGTH_LONG);
+
+                                    View view = snackbar.getView();
+                                    view.setBackgroundColor(getResources().getColor(R.color.colorOrange));
+                                    snackbar.show();
+                                    previewDilaog.dismiss();
+                                    //Toast.makeText(this, "No internet connection", Toast.LENGTH_SHORT).show();
+                                }
+
+
 
                             }
                         });
@@ -193,7 +209,6 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
                         ed_edEditortwo=editformSharePreferencestwo.edit();
                         ed_edEditor.putString("ComplaintType", type);
                         ed_edEditor.putString("subcomplaint", subtype);
-                        ed_edEditor.putString("subcomplaint2", subcomplaint2);
                         ed_edEditor.putString("subject",subject);
                         ed_edEditor.putString("details",details);
 
@@ -205,7 +220,6 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
 
                         ed_edEditor.commit();
                         ed_edEditortwo.commit();
-
                     }
                 });
                 previewDilaog.show();
@@ -356,6 +370,7 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                Log.e(TAG, "imagelist.size: "+imagelist.size() );
                 if (imagelist.size() < 3){
                     final Dialog sheetDialog = new Dialog(AttachmentSubmit.this, R.style.dialog_theme);
                     sheetDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -405,7 +420,7 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
                                     .includeVideo(false) // Show vidicon on image picker
                                     .single() // single mode
                                     .multi() // multi mode (default mode)
-                                    .limit(3) // max images can be selected (99 by default)
+                                    .limit(3 - imagelist.size()) // max images can be selected (99 by default)
                                     .showCamera(true) // show camera or not (true by default)
                                     .imageDirectory("Camera") // directory name for captured image  ("Camera" folder by default)
                                     //.origin(images) // original selected images, used in multi mode
@@ -439,7 +454,7 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
     protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
         try {
             if (ImagePicker.shouldHandle(requestCode, resultCode, data)) {
-                // Get a list of picked images
+                // Get a list of picked images from gallery
                 image_layout.setVisibility(View.VISIBLE);
                 images = ImagePicker.getImages(data);
                 runOnUiThread(new Runnable() {
@@ -683,7 +698,6 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
         data_map.put("user_id", createPartFromString(user_ids));
         data_map.put("complaint_type", createPartFromString(type));
         data_map.put("sub_complaint_type", createPartFromString(subtype));
-        data_map.put("sub_complaint_type2", createPartFromString(subcomplaint2));
         data_map.put("subject", createPartFromString(subject));
         data_map.put("details",createPartFromString(details));
         data_map.put("dept_name",createPartFromString(name));
@@ -692,15 +706,14 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
         data_map.put("person_email",createPartFromString(personemail));
         data_map.put("person_address",createPartFromString(personaddress));
 
-
         Log.e(TAG, "dataUploadToServir: "+data_map.toString() );
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .connectTimeout(2, TimeUnit.MINUTES)
-                .readTimeout(2, TimeUnit.MINUTES)
-                .writeTimeout(2, TimeUnit.MINUTES)
+                .connectTimeout(1, TimeUnit.MINUTES)
+                .readTimeout(1, TimeUnit.MINUTES)
+                .writeTimeout(1, TimeUnit.MINUTES)
                 .build();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URL_REG)
@@ -760,10 +773,37 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
                                     });
 
                                 }
-                                else if(success.equals("false"))
-                                {
-                                    Log.e( "run: ",response.body().getMessage());
+                                else {
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            progressDialog.dismiss();
+                                            Snackbar snackbar = Snackbar.make(complaint_submitlayout, "Server not responding. Please try again!",Snackbar.LENGTH_LONG);
+
+                                            View view = snackbar.getView();
+                                            view.setBackgroundColor(getResources().getColor(R.color.colorOrange));
+                                            snackbar.show();
+                                            Toast.makeText(AttachmentSubmit.this, "not responding", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
                                 }
+                            }
+
+                            else  if (success.equals(false)){
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        progressDialog.dismiss();
+                                        Snackbar snackbar = Snackbar.make(complaint_submitlayout, "Server not responding. Please try again!",Snackbar.LENGTH_LONG);
+
+                                        View view = snackbar.getView();
+                                        view.setBackgroundColor(getResources().getColor(R.color.colorOrange));
+                                        snackbar.show();
+                                        Toast.makeText(AttachmentSubmit.this, "not responding", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
                             }
                         }
                     });
@@ -781,7 +821,11 @@ public class AttachmentSubmit extends AppCompatActivity implements View.OnClickL
                     public void run() {
                         Log.e("Message", ""+t.getMessage());
                         progressDialog.dismiss();
-                        Toast.makeText(AttachmentSubmit.this, "Network error", Toast.LENGTH_SHORT).show();
+                        Snackbar snackbar = Snackbar.make(complaint_submitlayout, "No internet connection",Snackbar.LENGTH_LONG);
+
+                        View view = snackbar.getView();
+                        view.setBackgroundColor(getResources().getColor(R.color.colorOrange));
+                        snackbar.show();
                     }
                 });
 

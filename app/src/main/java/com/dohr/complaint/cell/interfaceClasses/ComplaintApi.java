@@ -25,6 +25,10 @@ public interface ComplaintApi {
     @POST(Config.ComplaintEndPoint)
     Call<ComplaintModel> getList(@FieldMap Map<String, String> map);
 
+    @FormUrlEncoded
+    @POST(Config.ComplaintEndPoint)
+    Call<ComplaintModel> getSubCatList(@FieldMap Map<String, String> map);
+
     @Multipart
     @POST(Config.registerComplaints)
     Call<RegisterComplaintModle> uploadData(@PartMap Map<String,RequestBody> map,@Part List<MultipartBody.Part> fileList);

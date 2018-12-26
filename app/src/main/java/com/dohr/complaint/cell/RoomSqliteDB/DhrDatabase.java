@@ -11,10 +11,10 @@ import com.dohr.complaint.cell.modelClasses.AllCategory;
 import com.dohr.complaint.cell.modelClasses.ComplaintModel;
 import com.dohr.complaint.cell.modelClasses.ComplaintType;
 import com.dohr.complaint.cell.modelClasses.Notification;
+import com.dohr.complaint.cell.modelClasses.NotificationModel;
 import com.dohr.complaint.cell.modelClasses.SubComplaintModel;
-import com.dohr.complaint.cell.modelClasses.SubComplaintModel2;
 
-@Database(entities = {ComplaintModel.AllCategory.class, SubComplaintModel.SubCategory.class, SubComplaintModel2.SubCategory2.class,  Notification.class}, version = 2, exportSchema = false)
+@Database(entities = {ComplaintModel.AllCategory.class, SubComplaintModel.SubCategory.class, Notification.class, NotificationModel.class}, version = 2, exportSchema = false)
 public abstract class DhrDatabase extends RoomDatabase {
     public abstract DaoAccess daoAccess() ;
 }

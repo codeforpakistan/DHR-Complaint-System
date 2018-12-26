@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/complaint_listlayout"
     android:layout_height="match_parent"
     tools:context=".javaClasses.ComplaintStatus">
 
@@ -34,7 +35,8 @@
             android:layout_toRightOf="@+id/backbtn"
             android:layout_marginLeft="@dimen/dist_15"
             android:textColor="@color/colorWhite"
-            android:textSize="18dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:layout_marginTop="@dimen/dist_10"
             android:layout_centerVertical="true"/>
 
@@ -58,6 +60,37 @@
             android:layout_marginBottom="@dimen/dist_5"/>
 
     </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reltve"
+        android:id="@+id/no_complaint"
+        android:layout_marginTop="@dimen/album_dp_50"
+        android:visibility="gone"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/no_data_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/notify"
+            android:alpha="0.5"
+            android:scaleType="centerCrop"
+            android:layout_centerInParent="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No complaints found!"
+            android:textColor="@color/colorGrey"
+            android:layout_below="@+id/no_data_img"
+            android:textSize="16sp"
+            android:layout_marginTop="@dimen/dist_30"
+            android:gravity="center"/>
+
+    </RelativeLayout>
 
 
 

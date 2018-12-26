@@ -7,11 +7,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.amulyakhare.textdrawable.TextDrawable;
+import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.dohr.complaint.cell.R;
 import com.dohr.complaint.cell.modelClasses.Notification;
+import com.dohr.complaint.cell.modelClasses.NotificationModel;
 
 import java.util.List;
 import java.util.Random;
@@ -23,28 +27,40 @@ import java.util.Random;
 public class OfflineAdpter extends RecyclerView.Adapter<OfflineAdpter.MyViewHolder> {
 
 
-    private List<Notification> dataSet;
-    public OfflineAdpter(List<Notification> data) {
+    private List<NotificationModel> dataSet;
+    ColorGenerator  generator = ColorGenerator.MATERIAL;
+    public OfflineAdpter(List<NotificationModel> data) {
         this.dataSet = data;
     }
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewName;
+        /*TextView textViewName;
         TextView textViewVersion;
         TextView textViewCat;
         TextView dateTime;
         private View rel;
-        TextView textViewdetail;
+        TextView textViewdetail;*/
         // ImageView imageViewIcon;
+
+        TextView title;
+        TextView date;
+        TextView details;
+        TextView status;
+        ImageView image_view;
+
 
         public MyViewHolder(View itemView) {
             super(itemView);
             //this.textViewName = (TextView) itemView.findViewById(R.id.textcomplaintTitle);
-            this.textViewVersion = (TextView) itemView.findViewById(R.id.textStatus);
+           /* this.textViewVersion = (TextView) itemView.findViewById(R.id.textStatus);
             this.textViewCat=(TextView)itemView.findViewById(R.id.CatStatus);
             this.rel = itemView.findViewById(R.id.rel);
-            this.dateTime=itemView.findViewById(R.id.datetime);
-            this.textViewdetail=itemView.findViewById(R.id.detailtv);
+            this.dateTime=itemView.findViewById(R.id.datetime);*/
+            this.image_view = itemView.findViewById(R.id.image_view);
+            this.title = itemView.findViewById(R.id.title);
+            this.date = itemView.findViewById(R.id.date);
+            this.details = itemView.findViewById(R.id.details);
+            this.status = itemView.findViewById(R.id.status);
 
         }
     }
@@ -53,7 +69,7 @@ public class OfflineAdpter extends RecyclerView.Adapter<OfflineAdpter.MyViewHold
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.cards_layout, parent, false);
+                .inflate(R.layout.notification_list, parent, false);
 
         // view.setOnClickListener(ListofComplaints.myOnClickListener);
 
@@ -64,35 +80,25 @@ public class OfflineAdpter extends RecyclerView.Adapter<OfflineAdpter.MyViewHold
     @Override
     public void onBindViewHolder(MyViewHolder holder, int listPosition) {
         //TextView textViewName = holder.textViewName;
-        TextView textViewVersion = holder.textViewVersion;
-        TextView textViewCat=holder.textViewCat;
-        TextView textViewdatetime=holder.dateTime;
-        TextView textViewdetail=holder.textViewdetail;
-        //ImageView imageView = holder.imageViewIcon;
-       //String datecheck= dataSet.get(listPosition).getDate();
-       /* String [] dateParts = datecheck.split("-");
-        String dayString = dateParts[0];
-        String monthString = dateParts[1];
-        String yearString = dateParts[2];*/
-
-        // textViewdatetime.setText(Html.fromHtml(dayString+"<br>"+monthString+ " <br>"+yearString));
-        /*String date=dataSet.get(listPosition).getComplainDetail();
-        Log.e("date",dayString );*/
-        //textViewName.setText(dataSet.get(listPosition).getComplaintTitle());
-        //textViewdetail.setText(date);
-
-       /* String monthString = dateParts[1];
-        String yearString = dateParts[2];*/
-
-       // textViewdatetime.setText(Html.fromHtml(dayString+"<br>"+monthString+ " <br>"+yearString));
-        //textViewdatetime.setText(Html.fromHtml(dayString+"<br>"+monthString+ " <br>"+yearString));
-        //holder.date.setText(movie.getCreatedAt());
+        TextView title = holder.title;
+        TextView date=holder.date;
+        TextView details=holder.details;
+        TextView status=holder.status;
         Random random = new Random();
 
         int color = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
-        holder.rel.setBackgroundColor(color);
-        textViewVersion.setText((CharSequence) dataSet.get(listPosition).getTitle());
-        textViewdetail.setText((CharSequence) dataSet.get(listPosition).getMsg());
+        title.setText(dataSet.get(listPosition).getTitle());
+        date.setText(dataSet.get(listPosition).getDate());
+        details.setText(dataSet.get(listPosition).getBody());
+        status.setText(dataSet.get(listPosition).getStatus());
+
+
+        TextDrawable drawable = TextDrawable.builder()
+                .buildRound(String.valueOf(dataSet.get(listPosition).getTitle().charAt(0)), generator.getRandomColor());
+
+        holder.image_view.setImageDrawable(drawable);
+
+       // textViewdetail.setText((CharSequence) dataSet.get(listPosition).getMsg());
         //textViewCat.setBackgroundColor(color);
 
     }

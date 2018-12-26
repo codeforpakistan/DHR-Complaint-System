@@ -1,5 +1,6 @@
 package com.dohr.complaint.cell.javaClasses;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -76,6 +77,7 @@ public class Register extends AppCompatActivity{
     RadioButton rb1;
     RadioButton radioButton,radioButton2,radioButton3;
     int user_id;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +109,9 @@ public class Register extends AppCompatActivity{
         cnic = findViewById(R.id.cnic);
         city = findViewById(R.id.city);
         password = findViewById(R.id.password);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Please Wait...");
+        progressDialog.setMessage("Registering User");
         rg1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
             @Override
@@ -319,6 +324,7 @@ public class Register extends AppCompatActivity{
 
                 else {
 
+                    progressDialog.show();
                     map.put("name", createPartFromString(tv_name));
                     map.put("mobile_no", createPartFromString(tv_moblie));
                     map.put("cnic", createPartFromString(tv_cnic));
@@ -366,12 +372,26 @@ public class Register extends AppCompatActivity{
                                     Log.e("user_id", String.valueOf(user_id));*/
                                     //saveUserData(name,mobile_no,cnic,email,city,api_token,user_id,father_name,gender,address);
 
-                                   Intent intent=new Intent(Register.this, UserVerification.class);
-                                    startActivity(intent);
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            progressDialog.dismiss();
+                                            Intent intent=new Intent(Register.this, UserVerification.class);
+                                            startActivity(intent);
+                                        }
+                                    });
+
 
 
                                 }else {
-                                    Toast.makeText(Register.this, "Already Exist!", Toast.LENGTH_SHORT).show();
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            progressDialog.dismiss();
+                                            Toast.makeText(Register.this, "Already Exist!", Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    });
                                 }
 
                             }
@@ -380,7 +400,14 @@ public class Register extends AppCompatActivity{
                         @Override
                         public void onFailure(Call<UserRegModel> call, Throwable t) {
                             Log.e("Message", ""+t.getMessage());
-                            Toast.makeText(Register.this, "Network error", Toast.LENGTH_SHORT).show();
+                           runOnUiThread(new Runnable() {
+                               @Override
+                               public void run() {
+                                   progressDialog.dismiss();
+                                   Toast.makeText(Register.this, "Network error", Toast.LENGTH_SHORT).show();
+
+                               }
+                           });
                         }
                     });
                 }

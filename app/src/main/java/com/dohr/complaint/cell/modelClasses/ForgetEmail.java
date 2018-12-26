@@ -11,9 +11,9 @@ public class ForgetEmail {
     @SerializedName("status")
     @Expose
     private Integer status;
-    @SerializedName("user")
+    @SerializedName("message")
     @Expose
-    private User user;
+    private String message;
 
     public String getSuccess() {
         return success;
@@ -31,12 +31,12 @@ public class ForgetEmail {
         this.status = status;
     }
 
-    public User getUser() {
-        return user;
+    public String getMessage() {
+        return message;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class ForgetEmail {
         return "ForgetEmail{" +
                 "success='" + success + '\'' +
                 ", status=" + status +
-                ", user=" + user +
+                ", message='" + message + '\'' +
                 '}';
     }
 }
