@@ -39,7 +39,7 @@ public class AwarenessDetails extends AppCompatActivity {
         description_text.setText(description_str);
 
 
-        Picasso.with(this).load(BaseUrl+allCategory.getImage()).resize(300,300).into(thumbnail_img);
+        Picasso.with(this).load(allCategory.getImage()).resize(300,300).into(thumbnail_img);
 
 
 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#20934b</color>
+    <color name="colorPrimaryDark">#1f8c45</color>
     <color name="colorlightgreen">#28bb62</color>
     <color name="grey">#c2c7d2</color>
     <color name="colorAccent">#29bc61</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorGreen">#29bc61</color>
+    <color name="colorGreen">#29aa69</color>
     <color name="colordarkGrey">#7a7b7a</color>
     <color name="colorGrey">#a8aaa9</color>
     <color name="colorlightGrey">#fcfcfc</color>
@@ -19,7 +19,7 @@
     <color name="colorlightdarkgrey">#f2f2f2</color>
     <color name="colorlistbg">#f3f3f3</color>
     <color name="colorbgdefault">#fafafa</color>
-    <color name="colorOrange">#ff7d41</color>
+    <color name="colorOrange">#399d60</color>
     <color name="colorPurple">#6c21a8</color>
     <color name="trans">@android:color/transparent</color>
 </resources>

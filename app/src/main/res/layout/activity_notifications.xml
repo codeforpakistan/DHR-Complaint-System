@@ -51,10 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="@dimen/dist_5"
-        android:layout_marginRight="@dimen/dist_5"
-        android:layout_marginBottom="3dp">
+        android:layout_margin="@dimen/dist_5">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/my_recycler_view"
@@ -68,13 +65,33 @@
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <ImageView
-        android:id="@+id/no_notification"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/backbtn"
-        android:visibility="gone"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="@dimen/album_dp_50"
+        android:id="@+id/notirel"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/no_data_img"
+            android:layout_width="140dp"
+            android:layout_height="150dp"
+            android:src="@drawable/no_notification"
+            android:alpha="0.5"
+            android:scaleType="centerCrop"
+            android:layout_centerInParent="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No notifications found!"
+            android:textColor="@color/colorGrey"
+            android:layout_below="@+id/no_data_img"
+            android:textSize="16sp"
+            android:layout_marginTop="@dimen/dist_30"
+            android:gravity="center"/>
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

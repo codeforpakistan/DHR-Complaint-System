@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="#ffffff"
-    android:id="@+id/snakbar_lay"
+android:id="@+id/snakbar_lay"
 tools:context="com.dohr.complaint.cell.javaClasses.ForGetActivity">
 
     <RelativeLayout

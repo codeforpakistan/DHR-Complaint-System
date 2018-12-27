@@ -68,7 +68,7 @@ public class Rec_Adpt extends RecyclerView.Adapter<Rec_Adpt.MyViewHolder>  {
         TextView textViewName = holder.textViewName;
         textViewName.setText(dataSet.get(listPosition).getTitle());
 
-        Picasso.with(m_coContext).load(BaseUrl+dataSet.get(listPosition).getImage()).resize(300,300).into(holder.imageView);
+        Picasso.with(m_coContext).load(dataSet.get(listPosition).getImage()).resize(300,300).into(holder.imageView);
         Log.e("image", "onBindViewHolder: "+BaseUrl+dataSet.get(listPosition).getImage() );
 
 

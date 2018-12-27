@@ -1,10 +1,12 @@
 package com.dohr.complaint.cell.javaClasses;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -43,6 +45,7 @@ public class UserVerification extends AppCompatActivity {
     EditText edt_txt1,edt_txt2,edt_txt3,edt_txt4,edit_text1;
     String data_one,data_two,data_three,data_four,all_data;
     SharedPreferences.Editor editor;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +58,9 @@ public class UserVerification extends AppCompatActivity {
         edt_txt2 = findViewById(R.id.edt_txt2);
         edt_txt1 = findViewById(R.id.edt_txt1);*/
         edit_text1 = findViewById(R.id.edit_text1);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Please Wait...");
+        progressDialog.setMessage("Verifying User");
 
 
     }
@@ -75,9 +81,16 @@ public class UserVerification extends AppCompatActivity {
         editor.putString(ADDRESS, address);
         editor.putString(User_id, user_id);
         editor.commit();
-        Log.e("Sharedprefrences","saveUserData: ");
-        Log.e("Sharedprefrences",name+" "+mobile_no+" "+cnic+" "+email+" "+city);
-        Log.e("Sharedprefrences",api_token+" "+user_id+" "+fthername+" "+gender+" "+address);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                progressDialog.dismiss();
+                Intent intent=new Intent(UserVerification.this,Home.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     public void dosomething(View view) {
@@ -91,13 +104,12 @@ public class UserVerification extends AppCompatActivity {
         Log.e( "dosomething: ",all_data );*/
 
         data_one=edit_text1.getText().toString();
-
-runOnUiThread(new Runnable() {
-    @Override
-    public void run() {
-        postData();
-    }
-});
+        if (!TextUtils.isEmpty(data_one)){
+            progressDialog.show();
+             postData();
+        }else {
+            edit_text1.setError("Enter Code");
+        }
 
 
     }
@@ -124,7 +136,6 @@ runOnUiThread(new Runnable() {
                     String status = response.body().getSuccess();
                     Log.e("status", "onResponse: "+status );
                     if (status.equals("true")){
-
                         name =response.body().getUser().getName();
                         mobile_no= response.body().getUser().getMobileNo();
                         cnic  =response.body().getUser().getCnic();
@@ -140,19 +151,30 @@ runOnUiThread(new Runnable() {
 
                         saveUserData(name,mobile_no,cnic,email,city,api_token,userId,father_name,gender,address);
 
-                        Intent intent=new Intent(UserVerification.this,Home.class);
-                        startActivity(intent);
                     }else {
-                        Toast.makeText(UserVerification.this, "Already Exist!", Toast.LENGTH_SHORT).show();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(UserVerification.this, "Already Exist!", Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+                            }
+                        });
+
                     }
 
                 }
             }
 
             @Override
-            public void onFailure(Call<VerifyUserAccount> call, Throwable t) {
-                Log.e("Message", ""+t.getMessage());
-                Toast.makeText(UserVerification.this, "Network error", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<VerifyUserAccount> call, final Throwable t) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(UserVerification.this, "Network error", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                    }
+                });
+
             }
         });
     }

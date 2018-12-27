@@ -16,33 +16,11 @@ public class Notification {
     private String msg;
     @Json(name = "title")
     private String title;
-    private String data;
-    private String status;
 
-
-
-    public Notification(int id, String msg, String title,String data,String status) {
+    public Notification(int id, String msg, String title) {
         this.msg = msg;
         this.title = title;
         this.id = id;
-        this.data=data;
-        this.status=status;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
     }
 
     public int getId() {
@@ -72,11 +50,8 @@ public class Notification {
     @Override
     public String toString() {
         return "Notification{" +
-                "id=" + id +
-                ", msg='" + msg + '\'' +
+                "msg='" + msg + '\'' +
                 ", title='" + title + '\'' +
-                ", data='" + data + '\'' +
-                ", status='" + status + '\'' +
                 '}';
     }
 }

@@ -38,12 +38,10 @@ import com.dohr.complaint.cell.RoomSqliteDB.DhrDatabase;
 import com.dohr.complaint.cell.javaClasses.AdapterClasses.AllCatAdapter;
 import com.dohr.complaint.cell.javaClasses.AdapterClasses.CustomAdapter;
 import com.dohr.complaint.cell.javaClasses.AdapterClasses.SubCatAdapter;
-import com.dohr.complaint.cell.javaClasses.AdapterClasses.SubCatAdapter2;
 import com.dohr.complaint.cell.modelClasses.AllCategory;
 import com.dohr.complaint.cell.modelClasses.ComplaintModel;
 import com.dohr.complaint.cell.modelClasses.ModelList;
 import com.dohr.complaint.cell.modelClasses.SubComplaintModel;
-import com.dohr.complaint.cell.modelClasses.SubComplaintModel2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,22 +53,20 @@ public class NewComplaint extends AppCompatActivity {
 
     //CardView card_container3, card_container2, card_container;
     LinearLayout card_container, card_container2, card_container3;
-    String catId,catName,subCatId, subCatId2,subCatName,Subject,Details;
+    String catId,catName,subCatId,subCatName,Subject,Details;
     private static final String DATABASE_NAME = "demo_db";
     List<SubComplaintModel.SubCategory> mSubCategories=new ArrayList<>();
-    List<SubComplaintModel2.SubCategory2> mSubCategories2=new ArrayList<>();
     List<ComplaintModel.AllCategory> mAllCategories=new ArrayList<>();;
     private static final String TAG = "Main";
     private DhrDatabase mDatabase;
     AllCatAdapter allCatAdapter;
     SubCatAdapter mSubCatAdapter;
-    SubCatAdapter2 mSubCatAdapter2;
     int count = 0;
     ImageView backbtn,back_bttn;
     ImageView nextbttn;
     private DhrDatabase dhrDatabase;
     //private static final String DATABASE_NAME = "dhr_db";
-    EditText ComplaintType,subcomplaint,subcomplaint2, msubject,details;
+    EditText ComplaintType,subcomplaint,msubject,details;
   //  String [] complaint_type = {"Children Rights", "Minority Rights","Rights to life, Liberty, Dignity","Women Rights"};
     ArrayList<String> complaintIdArr = new ArrayList<>();
     ArrayList<String> complaintNameArr = new ArrayList<>();
@@ -108,7 +104,6 @@ public class NewComplaint extends AppCompatActivity {
         card_container2 = findViewById(R.id.card_container2);
         ComplaintType = findViewById(R.id.ComplaintType);
         subcomplaint = findViewById(R.id.subcomplaint);
-        subcomplaint2 = findViewById(R.id.subcomplaint2);
         card_container3 = findViewById(R.id.card_container3);
         back_bttn = findViewById(R.id.back_bttn);
 
@@ -132,9 +127,9 @@ public class NewComplaint extends AppCompatActivity {
             details.setText(sh_details);
             subcomplaint.setText(sh_subcomplaint);
             Log.e("share data", "shareprefrance "+sh_msubject+"  "+sh_complaintTypes+"  "+sh_details+" "+sh_subcomplaint);
-            editformEditor = editformSharePreferences.edit();
-            editformEditor.clear();
-            editformEditor.commit();
+            //editformEditor = editformSharePreferences.edit();
+            //editformEditor.clear();
+            //editformEditor.commit();
         }
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,18 +152,11 @@ public class NewComplaint extends AppCompatActivity {
                 showSubCategoriesDialog();
             }
         });
-        subcomplaint2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showSubCategoriesDialog2();
-            }
-        });
         nextbttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ComplaintType_edttxt = ComplaintType.getText().toString();
                 subcomplaint_edttxt = subcomplaint.getText().toString();
-                String subcomplaint2_edttxt = subcomplaint2.getText().toString();
                 msubject_edtxt = msubject.getText().toString();
                 detail_edttxt = details.getText().toString();
                 if (TextUtils.isEmpty(ComplaintType_edttxt)){
@@ -189,20 +177,17 @@ public class NewComplaint extends AppCompatActivity {
                     details.requestFocus();
                 }
                 else{
-
                     Intent intent= new Intent(NewComplaint.this, ComplaintAgainst.class);
                     intent.putExtra("ComplaintType", ComplaintType_edttxt);
                     intent.putExtra("subcomplaint", subcomplaint_edttxt);
-                    intent.putExtra("subcomplaint2", subcomplaint2_edttxt);
                     intent.putExtra("Subject", msubject_edtxt);
                     intent.putExtra("Details", detail_edttxt);
-
                     startActivity(intent);
                 }
        }
         });
 
-        back_bttn.setOnClickListener(new View.OnClickListener() {
+      /*  back_bttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -222,8 +207,9 @@ public class NewComplaint extends AppCompatActivity {
                     Log.e(TAG, "run:"+count );
                 }
             }
-        });
+        });*/
     }
+
     private void loadAllCategories() {
         runOnUiThread(new Runnable() {
             @Override
@@ -303,13 +289,10 @@ public class NewComplaint extends AppCompatActivity {
                         if (!catId.equals("") || catId != null){
                             //create part and put in hasmap
                             loadSubCategories(catId);
-                            subcomplaint.setText("");
-                            subcomplaint2.setText("");
+                            //subcomplaint.setText("");
                             //mMap.put("vechicle_make", createPartFromString(catId));
                             Log.e("catId", catId);
                             Log.e("catName", catName);
-                            subcomplaint.setVisibility(View.VISIBLE);
-
                         } else {
                             Toast.makeText(NewComplaint.this, "Select complaint type", Toast.LENGTH_SHORT).show();
                         }
@@ -381,88 +364,8 @@ public class NewComplaint extends AppCompatActivity {
                         if (!catId.equals("")){
                             //create part and put in hasmap
                             //mMap.put("vechicle_make", createPartFromString(subCatId));
-                            loadSubCategories2(subCatId);
                             Log.e("subCatId", subCatId);
                             Log.e("subCatName", subCatName);
-                            subcomplaint2.setVisibility(View.VISIBLE);
-                            subcomplaint2.setText("");
-
-                        } else {
-
-                        }
-                    }
-                });
-            }
-        });
-
-        /*************************************************************/
-    }
-    /************************************************************/
-    private void showSubCategoriesDialog2() {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                final Dialog subCategoriesDialog = new Dialog(NewComplaint.this, R.style.dialog_theme);
-                subCategoriesDialog.setCancelable(true);
-                subCategoriesDialog.setContentView(R.layout.spinner_dialog);
-                TextView dialog_title = subCategoriesDialog.findViewById(R.id.dialog_title);
-                //add dynamic title to dialog
-                dialog_title.setText("Select Category Type");
-                SearchView mSearchView = subCategoriesDialog.findViewById(R.id.search_search);
-                mSearchView.setVisibility(View.VISIBLE);
-                final ListView list = subCategoriesDialog.findViewById(R.id.seize_cat_list);
-                mSubCatAdapter2 = new SubCatAdapter2(NewComplaint.this, mSubCategories2);
-                list.setAdapter(mSubCatAdapter);
-                mSubCatAdapter.notifyDataSetChanged();
-                list.setTextFilterEnabled(false);
-                mSearchView.setIconifiedByDefault(false);
-                mSearchView.setSubmitButtonEnabled(false);
-                mSearchView.setQueryHint("Search...");
-                subCategoriesDialog.show();
-
-                /*************************************************************/
-                //add text watcher on search edit text
-                mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                    @Override
-                    public boolean onQueryTextSubmit(String query) {
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onQueryTextChange(String newText) {
-                        if (TextUtils.isEmpty(newText)) {
-                            loadAllCategories();
-                            mSubCatAdapter2 = new SubCatAdapter2(NewComplaint.this, mSubCategories2);
-                            list.setAdapter(allCatAdapter);
-                            mSubCatAdapter.notifyDataSetChanged();
-
-                        } else {
-                            Filter filter = allCatAdapter.getFilter();
-                            filter.filter(newText);
-                        }
-                        return true;
-                    }
-                });
-
-                /*************************************************************/
-
-                //list view item click listener
-                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        subCategoriesDialog.dismiss();
-                        List<SubComplaintModel2.SubCategory2> arrayList = new ArrayList<>();
-                        arrayList = mSubCatAdapter2.getList();
-
-                        subcomplaint2.setError(null);
-                        subCatId2 = String.valueOf(arrayList.get(i).getId());
-                        subcomplaint2.setText(""+arrayList.get(i).getCatName());
-
-                        if (!subCatId2.equals("")){
-                            //create part and put in hasmap
-                            //mMap.put("vechicle_make", createPartFromString(subCatId));
-                            Log.e("subCatId2", subCatId2);
-
                         } else {
 
                         }
@@ -482,21 +385,6 @@ public class NewComplaint extends AppCompatActivity {
                     mSubCategories = mDatabase.daoAccess().fetchSubComplaintList(sub_cat_id);
                     Log.e(TAG, "list size: "+mSubCategories.size() );
                     Log.e(TAG, "sub cat: "+mSubCategories.toString() );
-                }catch (Exception e){
-                    Log.e(TAG, "exp: "+e.toString() );
-                }
-            }
-        }).start();
-
-    }
-    private void loadSubCategories2(final String sub_cat_id2) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    mSubCategories2 = mDatabase.daoAccess().fetchSubComplaintList2(sub_cat_id2);
-                    Log.e(TAG, "list size: "+mSubCategories2.size() );
-                    Log.e(TAG, "sub cat2: "+mSubCategories2.toString() );
                 }catch (Exception e){
                     Log.e(TAG, "exp: "+e.toString() );
                 }

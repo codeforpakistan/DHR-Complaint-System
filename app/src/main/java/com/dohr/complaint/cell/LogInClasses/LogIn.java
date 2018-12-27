@@ -99,7 +99,6 @@ public class LogIn extends AppCompatActivity{
         {
 
             token_key = FirebaseInstanceId.getInstance().getToken();
-            Log.e("token_id", token_key);
         }
        // Log.e("token_id", token_key);
         //////////////////////////////////////////////////////////////////////////////////////////////

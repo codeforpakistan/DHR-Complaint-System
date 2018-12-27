@@ -15,8 +15,11 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,23 +33,26 @@ import com.dohr.complaint.cell.javaClasses.AdapterClasses.NotificationAdapter;
 import com.dohr.complaint.cell.javaClasses.AdapterClasses.RecyclerViewAdapter;
 import com.dohr.complaint.cell.modelClasses.Notification;
 import com.dohr.complaint.cell.modelClasses.NotificationModal;
+import com.dohr.complaint.cell.modelClasses.NotificationModel;
 import com.dohr.complaint.cell.modelClasses.RecyclerViewModle;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Notifications extends AppCompatActivity implements RecyclerItemTouchHelper.RecyclerItemTouchHelperListener{
+public class Notifications extends AppCompatActivity implements RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
 
     HashMap<String, String> map = new HashMap<>();
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
-    List<Notification> data;
+    List<NotificationModel> data = new ArrayList<NotificationModel>();;
     DhrDatabase databaseRooom;
-    ImageView no_data_img,backbtn,no_notification;
+    ImageView no_data_img, backbtn, no_notification;
     SwipeRefreshLayout swiperefresh;
-    String complaint_id, user_id,title,body,status,date;
+    String complaint_id, user_id, title, body, status, date;
+    RelativeLayout reltve;
+
     /*String compl_detali,title,categories,status,date;
     private List<NotificationModal> notificationlist = new ArrayList<>();
     private RecyclerView recycler_view;
@@ -59,18 +65,15 @@ public class Notifications extends AppCompatActivity implements RecyclerItemTouc
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
-        no_data_img = findViewById(R.id.no_data_img);
+        reltve = findViewById(R.id.notirel);
         swiperefresh = findViewById(R.id.swiperefresh);
         backbtn = findViewById(R.id.backbtn);
-        no_notification = findViewById(R.id.no_notification);
+        //no_notification = findViewById(R.id.no_notification);
         swiperefresh.setRefreshing(true);
         swiperefresh.setColorSchemeColors(getResources().getColor(R.color.colorOrange));
 
-
-        //receive message from fcm in background
-        if (getIntent().getExtras() != null) {
-
-
+        ///receive message from fcm in background
+      /*  if (getIntent().getExtras() != null) {
 
             complaint_id = getIntent().getStringExtra("complaint_id");
             user_id = getIntent().getStringExtra("user_id");
@@ -80,17 +83,18 @@ public class Notifications extends AppCompatActivity implements RecyclerItemTouc
             date = getIntent().getStringExtra("date");
 
 
-            Log.e("notification",complaint_id +""+user_id+""+title+""+body+""+status+""+date);
+            Log.e("notification", complaint_id + "/" + user_id + "/" + title + "/" + body
+                    + "/" + status + "/" + date);
 
         } else {
             Toast.makeText(this, "EMPTy", Toast.LENGTH_SHORT).show();
-        }
+        }*/
 
 
         swiperefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-               //
+                //
                 //displayAllCompliants();
 
 
@@ -102,7 +106,7 @@ public class Notifications extends AppCompatActivity implements RecyclerItemTouc
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Notifications.this,Home.class));
+                startActivity(new Intent(Notifications.this, Home.class));
             }
         });
 
@@ -132,10 +136,10 @@ public class Notifications extends AppCompatActivity implements RecyclerItemTouc
 
         TextDrawable drawable2 = TextDrawable.builder()
                 .buildRound("A", Color.RED);*/
-        databaseRooom = Room.databaseBuilder(getApplicationContext(),DhrDatabase.class, "databaseName").allowMainThreadQueries()
+        databaseRooom = Room.databaseBuilder(getApplicationContext(), DhrDatabase.class, "databaseName").allowMainThreadQueries()
                 .fallbackToDestructiveMigration()
                 .build();
-        data = new ArrayList<Notification>();
+
 
         recyclerView = findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -144,13 +148,29 @@ public class Notifications extends AppCompatActivity implements RecyclerItemTouc
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         data.clear();
-        data=databaseRooom.daoAccess().getAllNoficitions();
-        adapter = new OfflineAdpter(data);
-        recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        data = databaseRooom.daoAccess().getAllNoficitions();
+        if (data.size() > 0 ){
+            adapter = new OfflineAdpter(data);
+            recyclerView.setAdapter(adapter);
+            runLayoutAnimation(recyclerView);
+
+            adapter.notifyDataSetChanged();
+            swiperefresh.setRefreshing(false);
+            reltve.setVisibility(View.GONE);
+        }
+        else {
+            swiperefresh.setRefreshing(false);
+            reltve.setVisibility(View.VISIBLE);
+        }
+
+
+
+
+
+
         //adapter.setRefreshing(false);
         // Setup onItemTouchHandler to enable drag and drop , swipe left or right
-        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0,  ItemTouchHelper.LEFT, this);
+        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView);
 // attaching the touch helper to recycler view
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView);
@@ -160,10 +180,13 @@ public class Notifications extends AppCompatActivity implements RecyclerItemTouc
             public void onRefresh() {
                 //swiperefresh.setRefreshing(false);
                 data.clear();
-                data=databaseRooom.daoAccess().getAllNoficitions();
-                Log.e( "onRefresh: ",data.toString() );
+                data = databaseRooom.daoAccess().getAllNoficitions();
+                Log.e("onRefresh: ", data.toString());
                 adapter = new OfflineAdpter(data);
+
                 recyclerView.setAdapter(adapter);
+                runLayoutAnimation(recyclerView);
+
                 swiperefresh.setRefreshing(false);
             }
 
@@ -201,12 +224,12 @@ public class Notifications extends AppCompatActivity implements RecyclerItemTouc
         //problem is here check it
         //adapter.removeItem(viewHolder.getAdapterPosition());
         try {
-           // databaseRooom.daoAccess().deleteNotification(id);
+            // databaseRooom.daoAccess().deleteNotification(id);
             //data.clear();
             prepareData();
             //adapter.notifyDataSetChanged();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.e("Exception", e.toString());
         }
 
@@ -214,13 +237,24 @@ public class Notifications extends AppCompatActivity implements RecyclerItemTouc
 
     private void prepareData() {
         data.clear();
-        data=databaseRooom.daoAccess().getAllNoficitions();
+        data = databaseRooom.daoAccess().getAllNoficitions();
         adapter = new OfflineAdpter(data);
         recyclerView.setAdapter(adapter);
+        runLayoutAnimation(recyclerView);
+
         adapter.notifyDataSetChanged();
+        reltve.setVisibility(View.GONE);
+        swiperefresh.setRefreshing(false);
     }
 
 
+    private void runLayoutAnimation(final RecyclerView recyclerView) {
+        final Context context = recyclerView.getContext();
+        final LayoutAnimationController controller =
+                AnimationUtils.loadLayoutAnimation(context, R.anim.layout_animation_fall_down);
 
-
+        recyclerView.setLayoutAnimation(controller);
+        recyclerView.getAdapter().notifyDataSetChanged();
+        recyclerView.scheduleLayoutAnimation();
+    }
 }

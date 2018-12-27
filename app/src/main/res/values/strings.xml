@@ -62,7 +62,7 @@
     <string name="Attachment"> ATTACHMENTS </string>
     <string name="description"> Please attach the evidence or any attachment in support of your complaint (Optional)</string>
     <string name="contactusinfo"> Directorate of Human Rights is always at your service. You can contact us 24/7 through call, Email, Website or by visiting our facebook and twitter pages.</string>
-    <string name="preview"> ---------------- Previews ---------------- </string>
+    <string name="preview"> ------------- Attachment Preview ------------- </string>
 
 
     <!--Dimensions-->

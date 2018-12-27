@@ -106,44 +106,67 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                            <EditText
-                                android:textSize="@dimen/dist_15"
-                                android:hint="@string/app_mobileno"
-                                android:textColorHint="@color/colorGrey"
-                                android:id="@+id/mobileno"
-                                android:background="@android:color/transparent"
-                                android:layout_marginTop="@dimen/dist_10"
+                            <android.support.design.widget.TextInputLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:inputType="number"
-                                android:textColor="@color/colorblack"
-                                android:maxLines="1"
-                                android:maxLength="13"
-                                android:paddingLeft="8dp"
-                                android:paddingRight="8dp"/>
+                                android:layout_height="wrap_content"
+                                android:hint="CNIC Number"
+                                android:imeOptions="actionDone"
+                                android:paddingBottom="@dimen/dist_5"
+                                android:paddingTop="@dimen/dist_5"
+                                app:passwordToggleEnabled="true"
+                                android:textColorHint="@color/colorGrey"
+                                >
+
+                                <EditText
+                                    android:textSize="14sp"
+                                    android:id="@+id/mobileno"
+                                    android:background="@android:color/transparent"
+                                    android:layout_marginTop="@dimen/dist_10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:textColor="@color/colorblack"
+                                    android:maxLines="1"
+                                    android:maxLength="13"
+                                    android:padding="10dp"/>
+
+                            </android.support.design.widget.TextInputLayout>
+
+
 
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginTop="@dimen/dist_5"
                                 android:background="@color/colorviewgray">
 
                             </View>
 
-                            <EditText
-                                android:textSize="@dimen/dist_15"
-                                android:layout_marginTop="@dimen/dist_10"
-                                android:id="@+id/password"
-                                android:background="@android:color/transparent"
-                                android:hint="@string/app_Password"
-                                android:textColorHint="@color/colorGrey"
+                            <android.support.design.widget.TextInputLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:paddingRight="8dp"
-                                android:paddingLeft="8dp"
-                                android:inputType="textPassword"
-                                android:textColor="@color/colorblack"
-                                android:maxLines="1"/>
+                                android:layout_height="wrap_content"
+                                android:hint="Password"
+                                android:imeOptions="actionDone"
+                                android:paddingBottom="@dimen/dist_5"
+                                android:paddingTop="@dimen/dist_5"
+                                app:passwordToggleEnabled="true"
+                                android:textColorHint="@color/colorGrey"
+                                >
+
+                                <EditText
+                                    android:textSize="14sp"
+                                    android:layout_marginTop="@dimen/dist_10"
+                                    android:id="@+id/password"
+                                    android:background="@android:color/transparent"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:inputType="textPassword"
+                                    android:textColor="@color/colorblack"
+                                    android:maxLines="1"/>
+
+                            </android.support.design.widget.TextInputLayout>
+
+
 
 
                         </LinearLayout>

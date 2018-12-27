@@ -58,6 +58,7 @@ public class Announcements extends AppCompatActivity {
         setContentView(R.layout.activity_announcements);
         backbtn = findViewById(R.id.backbtn);
         anounceswiperefresh = findViewById(R.id.anounceswiperefresh);
+        anounceswiperefresh.setColorSchemeColors(getResources().getColor(R.color.colorOrange));
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         sharedpreferences = getSharedPreferences(UserPref, Context.MODE_PRIVATE);
         apiToken=sharedpreferences.getString(UserPrefence.Api_token,"no data");

@@ -58,8 +58,8 @@ public class DirctoryAdpter  extends RecyclerView.Adapter<DirctoryAdpter.MyViewH
         TextView designation_txt = holder.designation_txt;
 
         textViewName.setText(dataSet.get(position).getName());
-        designation_txt.setText(dataSet.get(position).getName());
-        phone_txt.setText(dataSet.get(position).getName());
+        designation_txt.setText(dataSet.get(position).getDesignation());
+        phone_txt.setText(dataSet.get(position).getOfficeNumber());
 
     }
 

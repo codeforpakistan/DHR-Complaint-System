@@ -240,14 +240,21 @@ public class ForGetActivity extends AppCompatActivity {
         Call<ForgetEmail> call =  rest.sendEmail(map);
         call.enqueue(new Callback<ForgetEmail>() {
             @Override
-            public void onResponse(Call<ForgetEmail> call, Response<ForgetEmail> response) {
-                success = response.body().getSuccess();
-                Log.e("Message", "onResponse: "+success );
+            public void onResponse(Call<ForgetEmail> call, final Response<ForgetEmail> response) {
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        success = response.body().getSuccess();
+                        Log.e("Message", "onResponse: "+success );
+                    }
+                });
+
 
 
                 if (response.isSuccessful()) {
 
-                    Log.e(TAG, "onResponse: "+ response.body().getUser().toString());
+                    Log.e(TAG, "onResponse: "+ response.body().getMessage().toString());
                 }
             }
 

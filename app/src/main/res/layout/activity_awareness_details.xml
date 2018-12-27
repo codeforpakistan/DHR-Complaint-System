@@ -28,7 +28,8 @@
             android:layout_toRightOf="@+id/backbtn"
             android:layout_marginLeft="@dimen/dist_15"
             android:textColor="@color/colorWhite"
-            android:textSize="18dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:layout_marginTop="@dimen/dist_10"
             android:layout_centerVertical="true"/>
 

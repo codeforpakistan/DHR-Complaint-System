@@ -91,7 +91,8 @@ public class MyComplaintDetail extends AppCompatActivity {
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MyComplaintDetail.this, ComplaintStatus.class));
+                //startActivity(new Intent(MyComplaintDetail.this, ComplaintStatus.class));
+                finish();
             }
         });
 

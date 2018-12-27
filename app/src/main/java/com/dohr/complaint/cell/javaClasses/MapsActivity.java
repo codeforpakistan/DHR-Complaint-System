@@ -38,12 +38,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng sydney = new LatLng(33.9980672, 71.468513);
+        mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+        LatLng sydney = new LatLng(33.991470, 71.437809);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Human Rights, Government of Khyber Pakhtunkhwa"));
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         mMap.getUiSettings().setZoomControlsEnabled(true);
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(18.0f));
         // Add a marker in Sydney and move the camera
        /* LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Peshawar"));

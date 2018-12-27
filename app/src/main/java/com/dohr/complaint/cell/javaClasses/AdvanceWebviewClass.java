@@ -25,7 +25,7 @@ import im.delight.android.webview.AdvancedWebView;
 public class AdvanceWebviewClass extends AppCompatActivity {
 
     private WebView webView;
-    LinearLayout backbtn;
+    ImageView backbtn;
     SwipeRefreshLayout swiperefresh;
     ProgressBar progressBar1;
     @Override

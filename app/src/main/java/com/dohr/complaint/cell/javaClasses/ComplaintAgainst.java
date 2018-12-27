@@ -20,7 +20,7 @@ public class ComplaintAgainst extends AppCompatActivity {
 
     ImageView nextbttn,backbtn;
     EditText Name,mobilenumber,area,email,address;
-    String ComplaintType, subcomplaint,subcomplaint2, subject, details;
+    String ComplaintType, subcomplaint, subject, details;
     SharedPreferences editformSharePreferencestwo;
     SharedPreferences.Editor editformEditortwo;
     @Override
@@ -38,7 +38,6 @@ public class ComplaintAgainst extends AppCompatActivity {
         Intent intent = getIntent();
         ComplaintType = intent.getStringExtra("ComplaintType");
         subcomplaint = intent.getStringExtra("subcomplaint");
-        subcomplaint2 = intent.getStringExtra("subcomplaint2");
         subject = intent.getStringExtra("Subject");
         details = intent.getStringExtra("Details");
 
@@ -86,44 +85,50 @@ public class ComplaintAgainst extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(name))
                 {
-                    Name.setError("Please enter your name");
-                    Name.requestFocus();
+                    /*Name.setError("Please enter your name");
+                    Name.requestFocus();*/
+                    name = "N/A";
                 }
                 else if (TextUtils.isEmpty(mobileno)){
-                    mobilenumber.setError("Please enter your mobile number");
-                    mobilenumber.requestFocus();
+                    /*mobilenumber.setError("Please enter your mobile number");
+                    mobilenumber.requestFocus();*/
+                    mobileno = "N/A";
                 }
                 else
                     if (TextUtils.isEmpty(location)){
-                        area.setError("Please enter your area name");
-                        area.requestFocus();
+                       /* area.setError("Please enter your area name");
+                        area.requestFocus();*/
+                        location = "N/A";
                     }
                     else if (TextUtils.isEmpty(personemail)){
-                        email.setError("Please enter your email");
-                        email.requestFocus();
+                        /*email.setError("Please enter your email");
+                        email.requestFocus();*/
+                        personemail = "N/A";
                     }
                     else if (TextUtils.isEmpty(PersonAddress)){
-                        address.setError("Please enter your address");
-                        address.requestFocus();
+                        /*address.setError("Please enter your address");
+                        address.requestFocus();*/
+                        PersonAddress = "N/A";
                     }
 
                     else
                     {
-                        Intent intent= new Intent(ComplaintAgainst.this, AttachmentSubmit.class);
-                        intent.putExtra("ComplaintType",ComplaintType);
-                        intent.putExtra("subcomplaint",subcomplaint);
-                        intent.putExtra("subcomplaint2",subcomplaint2);
-                        intent.putExtra("subject",subject);
-                        intent.putExtra("details",details);
 
-                        intent.putExtra("name",name);
-                        intent.putExtra("mobileno",mobileno);
-                        intent.putExtra("location",location);
-                        intent.putExtra("personemail",personemail);
-                        intent.putExtra("PersonAddress",PersonAddress);
-
-                        startActivity(intent);
                     }
+
+                Intent intent= new Intent(ComplaintAgainst.this, AttachmentSubmit.class);
+                intent.putExtra("ComplaintType",ComplaintType);
+                intent.putExtra("subcomplaint",subcomplaint);
+                intent.putExtra("subject",subject);
+                intent.putExtra("details",details);
+
+                intent.putExtra("name",name);
+                intent.putExtra("mobileno",mobileno);
+                intent.putExtra("location",location);
+                intent.putExtra("personemail",personemail);
+                intent.putExtra("PersonAddress",PersonAddress);
+
+                startActivity(intent);
 
             }
         });
