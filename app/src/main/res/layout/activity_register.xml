@@ -347,7 +347,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="@android:color/transparent"
-                                    android:inputType="text"
+                                    android:inputType="number"
                                     android:id="@+id/cnic"
                                     android:layout_marginTop="@dimen/dist_20"
                                     android:alpha="0.9"

@@ -29,6 +29,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class ReceiveNotification extends FirebaseMessagingService {
@@ -38,66 +39,35 @@ public class ReceiveNotification extends FirebaseMessagingService {
     NotificationModel notificationModel;
     String noti_id;
     private static final String TAG = null;
-
+    String body;
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+        Log.e("data", ""+remoteMessage.getData());
+        handleDataMessage(remoteMessage.getData());
 
-        String complaint_id = remoteMessage.getData().get("complaint_id");
-        String user_id = remoteMessage.getData().get("user_id");
-        String title = remoteMessage.getData().get("title");
-        String status = remoteMessage.getData().get("status");
-        String date = remoteMessage.getData().get("date");
-        String body = remoteMessage.getData().get("body");
-        saveToDb(complaint_id, user_id, title, status, date, body);
 
-       /* JSONObject json ;
-        try {
-            json = new JSONObject(remoteMessage.getData().toString());
-            handleDataMessage(json);
-        } catch (JSONException e) {
-            Log.e("JSONException: ", e.toString());
-        }*/
     }
-    private void handleDataMessage(JSONObject json) {
-        JSONObject data = null;
-        Log.e("working: ", "success");
+
+    private void handleDataMessage(Map<String, String> data) {
         try {
+            String complaint_id = data.get("complaint_id");
+            String user_id = data.get("user_id");
+            String title = data.get("title");
+            String status = data.get("status");
+            String date = data.get("date");
+            body = data.get("body");
 
-            data = json.getJSONObject("complain_data");
-            //String complain_id=data.getString("complain_id");
-            Log.e("handleDataMessage: ",data.toString());
-            String title=data.getString("complaint_id");
-           // String msg=data.getString("body");
-            Log.e(TAG, "title: "+title+"msg:  " );
+            Log.e("user_id", user_id);
+            Log.e("title", title);
 
-            //saveToDb(title,msg);
-
-            Intent intent = new Intent(getApplicationContext(), Home.class);
-            intent.putExtra("key","status");
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
-            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getApplicationContext());
-            notificationBuilder.setStyle(new NotificationCompat.DecoratedCustomViewStyle());
-            notificationBuilder.setContentTitle("DOHR Notification");
-           // Spanned spanned = Html.fromHtml(msg);
-            //notificationBuilder.setContentText(spanned);
-            Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            notificationBuilder.setSound(soundUri);
-            notificationBuilder.setSmallIcon(R.drawable.logo);
-            notificationBuilder.setLargeIcon(BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.logo));
-            notificationBuilder.setAutoCancel(true);
-            Vibrator v = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
-            v.vibrate(1000);
-            notificationBuilder.setContentIntent(pendingIntent);
-            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            notificationManager.notify(0, notificationBuilder.build());
-
-        } catch (JSONException e) {
+            saveToDb(complaint_id, user_id, title, status, date, body);
+        } catch (Exception e) {
             e.printStackTrace();
-        }
+
+        };
+
 
     }
-
     private void saveToDb(String complaint_id, String user_id, String title, String status, String date, String body) {
         databaseRooom = Room.databaseBuilder(getApplicationContext(),
                 DhrDatabase.class, "databaseName")
@@ -114,7 +84,6 @@ public class ReceiveNotification extends FirebaseMessagingService {
         Log.e("data: ", data.toString());
         showNotification();
     }
-
     private void showNotification() {
         Intent intent = new Intent(getApplicationContext(), Notifications.class);
         intent.putExtra("key","status");
@@ -123,8 +92,8 @@ public class ReceiveNotification extends FirebaseMessagingService {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getApplicationContext());
         notificationBuilder.setStyle(new NotificationCompat.DecoratedCustomViewStyle());
         notificationBuilder.setContentTitle("DOHR Notification");
-        // Spanned spanned = Html.fromHtml(msg);
-        //notificationBuilder.setContentText(spanned);
+        Spanned spanned = Html.fromHtml(body);
+        notificationBuilder.setContentText(spanned);
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         notificationBuilder.setSound(soundUri);
         notificationBuilder.setSmallIcon(R.drawable.logo);

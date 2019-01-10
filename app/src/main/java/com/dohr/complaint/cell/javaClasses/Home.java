@@ -55,7 +55,7 @@ public class Home extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(UserPref,
                 Context.MODE_PRIVATE);
         String userName = sharedpreferences.getString(Name,"No data");
-        Toast.makeText(this, "Welcome "+userName, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Welcome "+userName, Toast.LENGTH_SHORT).show();
 
         newcomplaint = findViewById(R.id.newcomplaint);
         checkstatus = findViewById(R.id.checkstatus);
