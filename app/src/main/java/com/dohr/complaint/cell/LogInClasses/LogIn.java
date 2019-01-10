@@ -197,6 +197,7 @@ public class LogIn extends AppCompatActivity{
                     map.put("cnic",usercnic);
                     map.put("password",userpassword);
                     map.put("device_token",token_key);
+                        Log.e("map", map.toString());
                     Call<LogInData> call = rest.checkLogin(map);
 
                     call.enqueue(new Callback<LogInData>() {

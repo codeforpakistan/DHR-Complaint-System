@@ -223,7 +223,7 @@ public class ComplaintStatus extends AppCompatActivity {
                 Log.e("ComplainDetail", complaintDetail.getDetails());*/
 
                 if (response.isSuccessful()) {
-                    Toast.makeText(ComplaintStatus.this, "get data", Toast.LENGTH_SHORT).show();
+
                     if (response.body().getSuccess().equals("true")){
                         ListofcomplaintsDemo data_list = response.body();
                         for(ComplaintDetail c:data_list.getComplaintDetail()) {

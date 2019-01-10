@@ -191,7 +191,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:orientation="horizontal"
-                        android:layout_marginTop="@dimen/dist_5">
+                        android:layout_marginTop="@dimen/dist_5"
+                        android:layout_marginBottom="@dimen/dist_5">
 
                     <CheckBox
                         android:id="@+id/login_checkbox"

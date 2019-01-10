@@ -238,7 +238,7 @@ public class Register extends AppCompatActivity{
             public void afterTextChanged(Editable s) {
                 String CNIC = cnic.getText().toString();
                 if (CNIC.length()<13){
-                    cnic.setError("Enter Email Address");
+                    cnic.setError("Enter CNIC Address");
                     cnic.setTextColor(Color.RED);
                 }else {
                     cnic.setTextColor(Color.BLACK);

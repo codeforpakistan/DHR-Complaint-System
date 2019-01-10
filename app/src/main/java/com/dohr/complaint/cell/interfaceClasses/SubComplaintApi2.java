@@ -13,7 +13,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 public interface SubComplaintApi2 {
-    @FormUrlEncoded
+   /* @FormUrlEncoded
     @POST(Config.SubComplaintEndPoint2)
-    Call<SubComplaintModel2> getSubList2(@FieldMap Map<String, String> map);
+    Call<SubComplaintModel2> getSubList2(@FieldMap Map<String, String> map);*/
 }
